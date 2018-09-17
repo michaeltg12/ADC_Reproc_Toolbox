@@ -1,0 +1,376 @@
+{
+  "sgp": {
+    "E1": {
+      "ranges": [
+        {
+          "start": 19950101,
+          "end": 30000101,
+          "dict_name": "met_CR23X.json",
+          "row_numbers": [489, 76]
+        }
+      ]
+    },
+    "E3": {
+      "ranges": [
+        {
+          "start": 19950101,
+          "end": 30000101,
+          "dict_name": "met_CR23X.json",
+          "row_numbers": [489, 76]
+        }
+      ]
+    },
+    "E4": {
+      "ranges": [
+        {
+          "start": 19950101,
+          "end": 30000101,
+          "dict_name": "met_CR23X.json",
+          "row_numbers": [489, 76]
+        }
+      ]
+    },
+    "E5": {
+      "ranges": [
+        {
+          "start": 19950101,
+          "end": 30000101,
+          "dict_name": "met_CR23X.json",
+          "row_numbers": [489, 76]
+        }
+      ]
+    },
+    "E6": {
+      "ranges": [
+        {
+          "start": 19950101,
+          "end": 30000101,
+          "dict_name": "met_CR23X.json",
+          "row_numbers": [489, 76]
+        }
+      ]
+    },
+    "E7": {
+      "ranges": [
+        {
+          "start": 19950101,
+          "end": 30000101,
+          "dict_name": "met_CR23X.json",
+          "row_numbers": [489, 76]
+        }
+      ]
+    },
+    "E8": {
+      "ranges": [
+        {
+          "start": 19930101,
+          "end": 30000101,
+          "dict_name": "met_CR23X.json",
+          "row_numbers": [489, 76]
+        }
+      ]
+    },
+    "E9": {
+      "ranges": [
+        {
+          "start": 19930101,
+          "end": 20170918.150340,
+          "dict_name": "met_CR23X.json",
+          "row_numbers": [489, 76],
+          "notes" : "None"
+        },
+        {
+          "start": 20170918.172557,
+          "end": 30000101,
+          "dict_name": "met_CR3000.json",
+          "row_numbers": [489, 76],
+          "notes" : "File naming convention changes. Index 5 has Table1 included. Two overlapping hours (10&11) on 20170918"
+        }
+      ]
+    },
+    "E11": {
+      "ranges": [
+        {
+          "start": 19950101,
+          "end": 30000101,
+          "dict_name": "met_CR23X.json",
+          "row_numbers": [489, 76]
+        }
+      ]
+    },
+    "E13": {
+      "ranges": [
+        {
+          "start": 19950101,
+          "end": 20180110.200801,
+          "dict_name": "met_CR23X.json",
+          "row_numbers": [489, 76]
+        },
+        {
+          "start": 20180110.223948,
+          "end": 30000101,
+          "dict_name": "met_CR3000.json",
+          "row_numbers": [489, 76]
+        }
+      ]
+    },
+    "E15": {
+      "ranges": [
+        {
+          "start": 19950101,
+          "end": 20170920.154613,
+          "dict_name": "met_CR23X.json",
+          "row_numbers": [489, 76]
+        },
+        {
+          "start": 20170920.170401,
+          "end": 30000101,
+          "dict_name": "met_CR3000.json",
+          "row_numbers": [489, 76]
+        }
+      ]
+    },
+    "E20": {
+      "ranges": [
+        {
+          "start": 19950101,
+          "end": 30000101,
+          "dict_name": "met_CR23X.json",
+          "row_numbers": [489, 76]
+        }
+      ]
+    },
+    "E21": {
+      "ranges": [
+        {
+          "start": 19950101,
+          "end": 30000101,
+          "dict_name": "met_CR23X.json",
+          "row_numbers": [489, 76]
+        }
+      ]
+    },
+    "E24": {
+      "ranges": [
+        {
+          "start": 19950101,
+          "end": 30000101,
+          "dict_name": "met_CR23X.json",
+          "row_numbers": [489, 76]
+        }
+      ]
+    },
+    "E25": {
+      "ranges": [
+        {
+          "start": 19950101,
+          "end": 30000101,
+          "dict_name": "met_CR23X.json",
+          "row_numbers": [489, 76]
+        }
+      ]
+    },
+    "E27": {
+      "ranges": [
+        {
+          "start": 19950101,
+          "end": 30000101,
+          "dict_name": "met_CR23X.json",
+          "row_numbers": [489, 76]
+        }
+      ]
+    },
+    "E31": {
+      "ranges": [
+        {
+          "start": 19950101,
+          "end": 20170920.150401,
+          "dict_name": "met_CR23X.json",
+          "row_numbers": [489, 76]
+        },
+        {
+          "start": 20170921.212144,
+          "end": 30000101,
+          "dict_name": "met_CR3000.json",
+          "row_numbers": [489, 76]
+        }
+      ]
+    },
+    "E32": {
+      "ranges": [
+        {
+          "start": 19950101,
+          "end": 20170920.180401,
+          "dict_name": "met_CR23X.json",
+          "row_numbers": [489, 76]
+        },
+        {
+          "start": 20170921.211238,
+          "end": 30000101,
+          "dict_name": "met_CR3000.json",
+          "row_numbers": [489, 76]
+        }
+      ]
+    },
+    "E33": {
+      "ranges": [
+        {
+          "start": 19950101,
+          "end": 20170918.181327,
+          "dict_name": "met_CR23X.json",
+          "row_numbers": [489, 76]
+        },
+        {
+          "start": 20170918.200401,
+          "end": 30000101,
+          "dict_name": "met_CR3000.json",
+          "row_numbers": [489, 76]
+        }
+      ]
+    },
+    "E34": {
+      "ranges": [
+        {
+          "start": 19950101,
+          "end": 20170921.150301,
+          "dict_name": "met_CR23X.json",
+          "row_numbers": [489, 76]
+        },
+        {
+          "start": 20170921.171131,
+          "end": 30000101,
+          "dict_name": "met_CR3000.json",
+          "row_numbers": [489, 76]
+        }
+      ]
+    },
+    "E35": {
+      "ranges": [
+        {
+          "start": 19950101,
+          "end": 20170919.172603,
+          "dict_name": "met_CR23X.json",
+          "row_numbers": [489, 76]
+        },
+        {
+          "start": 20170919.190402,
+          "end": 30000101,
+          "dict_name": "met_CR3000.json",
+          "row_numbers": [489, 76]
+        }
+      ]
+    },
+    "E36": {
+      "ranges": [
+        {
+          "start": 19950101,
+          "end": 20170919.185531,
+          "dict_name": "met_CR23X.json",
+          "row_numbers": [489, 76]
+        },
+        {
+          "start": 20170920.020501,
+          "end": 30000101,
+          "dict_name": "met_CR3000.json",
+          "row_numbers": [489, 76]
+        }
+      ]
+    },
+    "E37": {
+      "ranges": [
+        {
+          "start": 19950101,
+          "end": 20170917.180401,
+          "dict_name": "met_CR23X.json",
+          "row_numbers": [489, 76]
+        },
+        {
+          "start": 20170922.130219,
+          "end": 30000101,
+          "dict_name": "met_CR3000.json",
+          "row_numbers": [489, 76]
+        }
+      ]
+    },
+    "E38": {
+      "ranges": [
+        {
+          "start": 19950101,
+          "end": 20170920.172510,
+          "dict_name": "met_CR23X.json",
+          "row_numbers": [489, 76]
+        },
+        {
+          "start": 20170920.180401,
+          "end": 30000101,
+          "dict_name": "met_CR3000.json",
+          "row_numbers": [489, 76]
+        }
+      ]
+    },
+    "E39": {
+      "ranges": [
+        {
+          "start": 19950101,
+          "end": 20170914.150502,
+          "dict_name": "met_CR23X.json",
+          "row_numbers": [489, 76]
+        },
+        {
+          "start": 20170914.174308,
+          "end": 30000101,
+          "dict_name": "met_CR3000.json",
+          "row_numbers": [489, 76]
+        }
+      ]
+    },
+    "E40": {
+      "ranges": [
+        {
+          "start": 19950101,
+          "end": 20170919.150301,
+          "dict_name": "met_CR23X.json",
+          "row_numbers": [489, 76]
+        },
+        {
+          "start": 20170919.160301,
+          "end": 30000101,
+          "dict_name": "met_CR3000.json",
+          "row_numbers": [489, 76]
+        }
+      ]
+    },
+    "E40": {
+      "ranges": [
+        {
+          "start": 19950101,
+          "end": 20170919.150301,
+          "dict_name": "met_CR23X.json",
+          "row_numbers": [489, 76]
+        },
+        {
+          "start": 20170919.160301,
+          "end": 30000101,
+          "dict_name": "met_CR3000.json",
+          "row_numbers": [489, 76]
+        }
+      ]
+    },
+    "E41": {
+      "ranges": [
+        {
+          "start": 19950101,
+          "end": 20170915.140501,
+          "dict_name": "met_CR23X.json",
+          "row_numbers": [489, 76]
+        },
+        {
+          "start": 20170915.185528,
+          "end": 30000101,
+          "dict_name": "met_CR3000.json",
+          "row_numbers": [489, 76]
+        }
+      ]
+    }
+  }
+}

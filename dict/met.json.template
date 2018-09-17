@@ -1,0 +1,174 @@
+{
+    "sgp" : 
+    {
+        "E21" : 
+        {
+            "ranges" : 
+            [
+                {
+                    "start" : 19990727,
+                    "end" : "present",
+                    "schema" : 
+                    {
+                        "data" : 
+                        {
+                            "record_number" :  
+                            {
+                                "column" : 0,
+                                "number" : 489
+                            },
+                            "year_YYYY" :   
+                            {
+                                "column" : 1
+                            },
+                            "julian_date_DDD" :   
+                            {
+                                "column" : 2
+                            },
+                            "hr_min_HHmm" :   
+                            {
+                                "column" : 3
+                            },
+                            "wspd_arith_mean" :   
+                            {
+                                "column" : 4
+                            },
+                            "wspd_vec_mean" :   
+                            {
+                                "column" : 5
+                            },
+                            "wdir_vec_mean" :   
+                            {
+                                "column" : 6
+                            },
+                            "wdir_vec_std" :   
+                            {
+                                "column" : 7
+                            },
+                            "temp_mean" :   
+                            {
+                                "column" : 8
+                            },
+                            "rh_mean" :   
+                            {
+                                "column" : 9
+                            },
+                            "vapor_pressure_mean" :   
+                            {
+                                "column" : 10
+                            },
+                            "atmos_pressure" :   
+                            {
+                                "column" : 11
+                            },
+                            "tbrg_precip_total" : 
+                            {
+                                "column" : 12,
+                                "input_for" : 
+                                    [ 
+                                        "tbrg_precip_total_corr" 
+                                    ]
+                            },
+                            "tbrg_precip_total_corr" : 
+                            {
+                                "column" : 13,
+                                "output_of" : 
+                                    [
+                                        "tbrg_precip_total",
+                                        "R1_tbrg_precip_corr_info",
+                                        "R2_tbrg_precip_corr_info"
+                                    ],
+                                "equation" : "tbrg_precip_total_corr = R1_tbrg_precip_corr_info * tbrg_precip_total^2 + R2_tbrg_precip_corr_info * tbrg_precip_total"
+                            },
+                            "temp_std" :   
+                            {
+                                "column" : 14
+                            },
+                            "rh_std" :   
+                            {
+                                "column" : 15
+                            },
+                            "vapor_pressure_std" :   
+                            {
+                                "column" : 16
+                            },
+                            "logger_volt" :   
+                            {
+                                "column" : 17
+                            },
+                            "logger_temp" :   
+                            {
+                                "column" : 18
+                            }
+                        },
+                        "coeff" : 
+                        {
+                            "record_number" :  
+                            {
+                                "column" : 0,
+                                "number" :76
+                            },
+                            "year_YYYY" :  
+                            {
+                                "column" : 1
+                            },
+                            "julian_date_DDD":  
+                            {
+                                "column" : 2
+                            },
+                            "hr_min_HHmm":  
+                            {
+                                "column" : 3
+                            },
+                            "wind_speed_slope":  
+                            {
+                                "column" : 4
+                            },
+                            "wind_speed_offset": 
+                            {
+                                "column" : 5
+                            },
+                            "serial_number": 
+                            {
+                                "column" : 6
+                            },
+                            "R1_tbrg_precip_corr_info": 
+                            {
+                                "column" : 7,
+                                "input_for" : 
+                                [
+                                    "tbrg_precip_total_corr"
+                                ]
+                            },
+                            "R2_tbrg_precip_corr_info" : 
+                            { 
+                                "column" : 8,
+                                "input_for" : 
+                                [
+                                    "tbrg_precip_total_corr"
+                                ]
+                            }
+                        }
+                    }
+                }
+
+                {
+                    "start" : 19800727,
+                    "end" : 19990726,
+                    "schema" : 
+                    {
+                        "data" : 
+                        {
+
+                        },
+                        "coeff" :
+                        {
+
+
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

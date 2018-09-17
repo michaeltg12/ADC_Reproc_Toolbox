@@ -1,0 +1,45 @@
+{
+  "uid" : "" ,
+  "dqr" : "" ,
+  "processing_area" : "" ,
+  "args" : "" ,
+
+  "completed" : [] ,
+
+  "datastream" : "" ,
+  "site" : "" ,
+  "instrument" : "" ,
+  "facility" : "" ,
+  "level" : "" ,
+
+  "start_date" : "" ,
+  "end_date" : "" ,
+  "early" : "" ,
+  "late" : "" ,
+  "raw_tar_list" : [] ,
+  "netcdf_file_list" : [] ,
+  "raw_tar_buffer" : [] ,
+  "netcdf_file_buffer" : [] ,
+  "equations" : "" ,
+  "affected_ds" : "" ,
+  "db_access_time" : 0 ,
+  "original_coefficients" : {},
+
+  "raw_dest_path" : "" ,
+  "netcdf_dest_path" : "" ,
+  "raw_files_list" : [] ,
+  "collection_path" : "" ,
+  "collection_orig_path" : "" ,
+  "staging_time" : 0 ,
+
+  "files_reprocessed" : 0 ,
+  "bytes_processed" : 0 ,
+  "overlapping_times" : [] ,
+  "reproc_time" : 0 ,
+
+  "to_users" : "" ,
+  "bcc_users" : "" ,
+
+  "errors" : [] ,
+  "global_time" : 0
+}

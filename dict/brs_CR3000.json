@@ -1,0 +1,355 @@
+{
+  "table_id": {
+    "data": 213,
+    "coef" : 214
+  },
+  "213": {
+    "timestamp": {
+      "column": 0,
+      "format": "yyyy-mm-dd hh:mm:ss.d"
+    },
+    "RN": {
+      "column": 1,
+      "notes": "record number. still not totally sure?"
+    },
+    "up_long_hemisp": {
+      "column": 2,
+      "type": "Average"
+    },
+    "down_long_hemisp_shaded": {
+      "column": 3,
+      "type": "Average"
+    },
+    "down_short_diffuse_hemisp": {
+      "column": 4,
+      "type": "Average"
+    },
+    "up_short_hemisp": {
+      "column": 5,
+      "type": "Average"
+    },
+    "short_direct_normal": {
+      "column": 6,
+      "type": "Average"
+    },
+    "down_short_hemisp": {
+      "column": 7,
+      "type": "Average"
+    },
+    "up_long_hemisp_std": {
+      "column": 8,
+      "type": "Standard deviation"
+    },
+    "down_long_hemisp_shaded_std": {
+      "column": 9,
+      "type": "Standard deviation"
+    },
+    "down_short_diffuse_hemisp_std": {
+      "column": 10,
+      "type": "Standard deviation"
+    },
+    "up_short_hemisp_std": {
+      "column": 11,
+      "type": "Standard deviation"
+    },
+    "short_direct_normal_std": {
+      "column": 12,
+      "type": "Standard deviation"
+    },
+    "down_short_hemisp_std": {
+      "column": 13,
+      "type": "Standard deviation"
+    },
+    "up_long_hemisp_max": {
+      "column": 14,
+      "type": "Maxima"
+    },
+    "down_long_hemisp_shaded_max": {
+      "column": 15,
+      "type": "Maxima"
+    },
+    "down_short_diffuse_hemisp_max": {
+      "column": 16,
+      "type": "Maxima"
+    },
+    "up_short_hemisp_max": {
+      "column": 17,
+      "type": "Maxima"
+    },
+    "short_direct_normal_max": {
+      "column": 18,
+      "type": "Maxima"
+    },
+    "down_short_hemisp_max": {
+      "column": 19,
+      "type": "Maxima"
+    },
+    "up_long_hemisp_min": {
+      "column": 20,
+      "type": "Minima"
+    },
+    "down_long_hemisp_shaded_min": {
+      "column": 21,
+      "type": "Minima"
+    },
+    "down_short_diffuse_hemisp_min": {
+      "column": 22,
+      "type": "Minima"
+    },
+    "up_short_hemisp_min": {
+      "column": 23,
+      "type": "Minima"
+    },
+    "short_direct_normal_min": {
+      "column": 24,
+      "type": "Minima"
+    },
+    "down_short_hemisp_min": {
+      "column": 25,
+      "type": "Minima"
+    },
+    "inst_up_long_dome_resist_20": {
+      "column": 26,
+      "type": "Instantaneous samples 20s"
+    },
+    "inst_up_long_case_resist_20": {
+      "column": 27,
+      "type": "Instantaneous samples 20s"
+    },
+    "inst_down_long_shaded_dome_resist_20": {
+      "column": 28,
+      "type": "Instantaneous samples 20s"
+    },
+    "inst_down_long_shaded_case_resist_20": {
+      "column": 29,
+      "type": "Instantaneous samples 20s"
+    },
+    "inst_up_long_hemisp_tp_20": {
+      "column": 30,
+      "type": "Instantaneous samples 20s"
+    },
+    "inst_down_long_hemisp_shaded_tp_20": {
+      "column": 31,
+      "type": "Instantaneous samples 20s"
+    },
+    "inst_diffuse_20": {
+      "column": 32,
+      "type": "Instantaneous samples 20s"
+    },
+    "inst_up_short_hemisp_20": {
+      "column": 33,
+      "type": "Instantaneous samples 20s"
+    },
+    "inst_direct_normal_20": {
+      "column": 34,
+      "type": "Instantaneous samples 20s"
+    },
+    "inst_global_20": {
+      "column": 35,
+      "type": "Instantaneous samples 20s"
+    },
+    "inst_up_long_dome_resist_40": {
+      "column": 36,
+      "type": "Instantaneous samples 40s"
+    },
+    "inst_up_long_case_resist_40": {
+      "column": 37,
+      "type": "Instantaneous samples 40s"
+    },
+    "inst_down_long_shaded_dome_resist_40": {
+      "column": 38,
+      "type": "Instantaneous samples 40s"
+    },
+    "inst_down_long_shaded_case_resist_40": {
+      "column": 39,
+      "type": "Instantaneous samples 40s"
+    },
+    "inst_up_long_hemisp_tp_40": {
+      "column": 40,
+      "type": "Instantaneous samples 40s"
+    },
+    "inst_down_long_hemisp_shaded_tp_40": {
+      "column": 41,
+      "type": "Instantaneous samples 40s"
+    },
+    "inst_diffuse_40": {
+      "column": 42,
+      "type": "Instantaneous samples 40s"
+    },
+    "inst_up_short_hemisp_40": {
+      "column": 43,
+      "type": "Instantaneous samples 40s"
+    },
+    "inst_direct_normal_40": {
+      "column": 44,
+      "type": "Instantaneous samples 40s"
+    },
+    "inst_global_40": {
+      "column": 45,
+      "type": "Instantaneous samples 40s"
+    },
+    "inst_up_long_dome_resist_60": {
+      "column": 46,
+      "type": "Instantaneous samples 60s"
+    },
+    "inst_up_long_case_resist_60": {
+      "column": 47,
+      "type": "Instantaneous samples 60s"
+    },
+    "inst_down_long_shaded_dome_resist_60": {
+      "column": 48,
+      "type": "Instantaneous samples 60s"
+    },
+    "inst_down_long_shaded_case_resist_60": {
+      "column": 49,
+      "type": "Instantaneous samples 60s"
+    },
+    "inst_up_long_hemisp_tp_60": {
+      "column": 50,
+      "type": "Instantaneous samples 60s"
+    },
+    "inst_down_long_hemisp_shaded_tp_60": {
+      "column": 51,
+      "type": "Instantaneous samples 60s"
+    },
+    "inst_diffuse_60": {
+      "column": 52,
+      "type": "Instantaneous samples 60s"
+    },
+    "inst_up_short_hemisp_60": {
+      "column": 53,
+      "type": "Instantaneous samples 60s"
+    },
+    "inst_direct_normal_60": {
+      "column": 54,
+      "type": "Instantaneous samples 60s"
+    },
+    "inst_global_60": {
+      "column": 55,
+      "type": "Instantaneous samples 60s"
+    },
+    "Batt_V_Min": {
+      "column": 56
+    },
+    "CR3Temp_C_Avg": {
+      "column": 57
+    }
+  },
+  "214": {
+    "timestamp": {
+      "column": 0,
+      "format": "yyyy-mm-dd hh:mm:ss.d"
+    },
+    "RN": {
+      "column": 1,
+      "notes": "I don't know what this is"
+    },
+    "UWPIR_SN": {
+      "column": 2,
+      "type": "serial number"
+    },
+    "UWPIR_K0": {
+      "column": 3,
+      "type": "calib_coeff_k0"
+    },
+    "UWPIR_K1": {
+      "column": 4,
+      "type": "calib_coeff_k1"
+    },
+    "UWPIR_K2": {
+      "column": 5,
+      "type": "calib_coeff_k2"
+    },
+    "UWPIR_K3": {
+      "column": 6,
+      "type": "calib_coeff_k3"
+    },
+    "UWPIR_Kr": {
+      "column": 7,
+      "type": "calib_coeff_kr"
+    },
+    "DWPIR_SN": {
+      "column": 8,
+      "type": "serial_number"
+    },
+    "DWPIR_K0": {
+      "column": 9,
+      "type": "calib_coeff_k0"
+    },
+    "DWPIR_K1": {
+      "column": 10,
+      "type": "calib_coeff_k1"
+    },
+    "DWPIR_K2": {
+      "column": 11,
+      "type": "calib_coeff_k2"
+    },
+    "DWPIR_K3": {
+      "column": 12,
+      "type": "calib_coeff_k3"
+    },
+    "DWPIR_Kr": {
+      "column": 13,
+      "type": "calib_coeff_kr"
+    },
+    "BW_DD_SN": {
+      "column": 14,
+      "type": "serial_number",
+      "notes": "Diffuse PSP down_short_diffuse_hemisp serial number"
+    },
+    "BW_DD_CF": {
+      "column": 15,
+      "type": "coeff"
+    },
+    "PSPUS_SN": {
+      "column": 16,
+      "type": "serial_number",
+      "notes": "PSP-US up_short_hemisp"
+    },
+    "PSPUS_CF": {
+      "column": 17,
+      "type": "coeff"
+    },
+    "PSPDS_SN": {
+      "column": 18,
+      "type": "serial_number",
+      "notes": "down_short_hemisp"
+    },
+    "PSPDS_CF": {
+      "column": 19,
+      "type": "coeff"
+    },
+    "NIP_SN": {
+      "column": 20,
+      "type": "serial_number",
+      "notes": ""
+    },
+    "NIP_CF": {
+      "column": 21,
+      "type": "coeff"
+    },
+    "StationName": {
+      "column": 22,
+      "format": "site_instrument_facility"
+    },
+    "ProgName": {
+      "column": 23
+    },
+    "PgmStartTime": {
+      "column": 24,
+      "desc": "When the program was started"
+    },
+    "OSVersion": {
+      "column": 25
+    },
+    "LithiumBattery": {
+      "column": 26
+    },
+    "Low12VCount": {
+      "column": 27
+    },
+    "SkippedScan": {
+      "column": 28
+    }
+  }
+}

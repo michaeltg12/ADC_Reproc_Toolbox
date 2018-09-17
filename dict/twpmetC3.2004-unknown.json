@@ -1,0 +1,87 @@
+{
+  "data": {
+    "record_number": {
+      "column": 0,
+      "format": "single digit",
+      "notes" : "may indicate record type"
+    },
+    "year": {
+      "column": 1,
+      "format" : "YYYY",
+      "type" : "datetime"
+    },
+    "date": {
+      "column": 2,
+      "format": "JJJ",
+      "type" : "datetime",
+      "notes" : "Julian day of the year"
+    },
+    "hour_min": {
+      "column": 3,
+      "format" : "HHMM",
+      "type" : "datetime",
+      "notes" : "variable length, [M, MM, HMM, HHMM]"
+    },
+    "precip_mean": {
+      "column": 4,
+      "type" : "mean",
+      "cdf_var_name" : "org_precip_rate_mean",
+      "qc_var_name" : "qc_org_precip_rate_mean",
+      "attributes" : {
+        "description" : "See global attributes for individual bit descriptions.",
+        "long_name" : "Quality check results on field: ORG precipitation rate mean",
+        "units": "unitless"
+      }
+    },
+    "wind_speed_offset": {
+      "column": 5,
+      "format" : "float",
+      "type" : "offset",
+      "cdf_var_name" : "wind_speed_offset",
+      "notes" : "This variable is represented as a global attribute",
+    },
+    "wind_speed_slope_aux": {
+      "column": 6,
+      "format" : "float",
+      "type" : "slope",
+      "cdf_var_name" : "wind_speed_slope_aux",
+      "notes" : "This variable is represented as a global attribute",
+    },
+    "wind_speed_offset_aux": {
+      "column": 7,
+      "format" : "float",
+      "type" : "offset",
+      "cdf_var_name" : "wind_speed_offset_aux",
+      "notes" : "This variable is represented as a global attribute",
+    },
+    "temp_mean": {
+      "column": 8,
+      "format" : "float",
+      "cdf_var_name" : "temp_mean",
+      "qc_var_name" : "qc_temp_mean",
+      "notes" : "",
+      "attributes" : {
+        "long_name" : "Temperature mean",
+        "missing_value" : -9999,
+        "units" : "degC",
+        "valid_delta" : 20,
+        "valid_max" : 50,
+        "valid_min" : 0
+      }
+    },
+  }
+}
+
+***
+
+    "": {
+      "column": ,
+      "format" : "",
+      "type" : "",
+      "cdf_var_name" : "",
+      "qc_var_name" : "",
+      "notes" : "",
+      "attributes" : {
+        "" : ""
+      }
+    },

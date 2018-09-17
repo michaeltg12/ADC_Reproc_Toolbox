@@ -1,0 +1,583 @@
+{
+  "table_id": [
+    213,
+    214
+  ],
+  "213": {
+    "table_id": {
+      "column": 0,
+      "format": "int, either 213 or 214"
+    },
+    "year": {
+      "column": 1,
+      "format": "yyy"
+    },
+    "jday": {
+      "column": 2,
+      "format": "nnn"
+    },
+    "time": {
+      "column": 3,
+      "notes": "hhmm"
+    },
+    "UWPIR_Wm2_Avg": {
+      "column": 4,
+      "type": "Average"
+    },
+    "DWPIR_Wm2_Avg": {
+      "column": 5,
+      "type": "Average"
+    },
+    "BW_DD_Wm2_Avg": {
+      "column": 6,
+      "type": "Average"
+    },
+    "PSPUS_Wm2_Avg": {
+      "column": 7,
+      "type": "Average"
+    },
+    "NIP_Wm2_Avg": {
+      "column": 8,
+      "type": "Average"
+    },
+    "PSPDS_Wm2_Avg": {
+      "column": 9,
+      "type": "Average"
+    },
+    "UWPIR_Wm2_Std": {
+      "column": 10,
+      "type": "Standard deviation"
+    },
+    "DWPIR_Wm2_Std": {
+      "column": 11,
+      "type": "Standard deviation"
+    },
+    "BW_DD_Wm2_Std": {
+      "column": 12,
+      "type": "Standard deviation"
+    },
+    "PSPUS_Wm2_Std": {
+      "column": 13,
+      "type": "Standard deviation"
+    },
+    "NIP_Wm2_Std": {
+      "column": 14,
+      "type": "Standard deviation"
+    },
+    "PSPDS_Wm2_Std": {
+      "column": 15,
+      "type": "Standard deviation"
+    },
+    "UWPIR_Wm2_Max": {
+      "column": 16,
+      "type": "Maxima"
+    },
+    "DWPIR_Wm2_Max": {
+      "column": 17,
+      "type": "Maxima"
+    },
+    "BW_DD_Wm2_Max": {
+      "column": 18,
+      "type": "Maxima"
+    },
+    "PSPUS_Wm2_Max": {
+      "column": 19,
+      "type": "Maxima"
+    },
+    "NIP_Wm2_Max": {
+      "column": 20,
+      "type": "Maxima"
+    },
+    "PSPDS_Wm2_Max": {
+      "column": 21,
+      "type": "Maxima"
+    },
+    "UWPIR_Wm2_Min": {
+      "column": 22,
+      "type": "Minima"
+    },
+    "DWPIR_Wm2_Min": {
+      "column": 23,
+      "type": "Minima"
+    },
+    "BW_DD_Wm2_Min": {
+      "column": 24,
+      "type": "Minima"
+    },
+    "PSPUS_Wm2_Min": {
+      "column": 25,
+      "type": "Minima"
+    },
+    "NIP_Wm2_Min": {
+      "column": 26,
+      "type": "Minima"
+    },
+    "PSPDS_Wm2_Min": {
+      "column": 27,
+      "type": "Minima"
+    },
+    "UWDomeR_O_20": {
+      "column": 28,
+      "type": "Instantaneous samples 20s"
+    },
+    "UWCaseR_O_20": {
+      "column": 29,
+      "type": "Instantaneous samples 20s"
+    },
+    "DWDomeR_O_20": {
+      "column": 30,
+      "type": "Instantaneous samples 20s"
+    },
+    "DWCaseR_O_20": {
+      "column": 31,
+      "type": "Instantaneous samples 20s"
+    },
+    "UWNet_mV_20": {
+      "column": 32,
+      "type": "Instantaneous samples 20s"
+    },
+    "DWNet_mV_20": {
+      "column": 33,
+      "type": "Instantaneous samples 20s"
+    },
+    "BW_DD_mV_20": {
+      "column": 34,
+      "type": "Instantaneous samples 20s"
+    },
+    "PSPUS_mV_20": {
+      "column": 35,
+      "type": "Instantaneous samples 20s"
+    },
+    "NIP_mV_20": {
+      "column": 36,
+      "type": "Instantaneous samples 20s"
+    },
+    "PSPDS_mV_20": {
+      "column": 37,
+      "type": "Instantaneous samples 20s"
+    },
+    "UWDomeR_O_40": {
+      "column": 38,
+      "type": "Instantaneous samples 40s"
+    },
+    "UWCaseR_O_40": {
+      "column": 39,
+      "type": "Instantaneous samples 40s"
+    },
+    "DWDomeR_O_40": {
+      "column": 40,
+      "type": "Instantaneous samples 40s"
+    },
+    "DWCaseR_O_40": {
+      "column": 41,
+      "type": "Instantaneous samples 40s"
+    },
+    "UWNet_mV_40": {
+      "column": 42,
+      "type": "Instantaneous samples 40s"
+    },
+    "DWNet_mV_40": {
+      "column": 43,
+      "type": "Instantaneous samples 40s"
+    },
+    "BW_DD_mV_40": {
+      "column": 44,
+      "type": "Instantaneous samples 40s"
+    },
+    "PSPUS_mV_40": {
+      "column": 45,
+      "type": "Instantaneous samples 40s"
+    },
+    "NIP_mV_40": {
+      "column": 46,
+      "type": "Instantaneous samples 40s"
+    },
+    "PSPDS_mV_40": {
+      "column": 47,
+      "type": "Instantaneous samples 40s"
+    },
+    "UWDomeR_O_60": {
+      "column": 48,
+      "type": "Instantaneous samples 60s"
+    },
+    "UWCaseR_O_60": {
+      "column": 49,
+      "type": "Instantaneous samples 60s"
+    },
+    "DWDomeR_O_60": {
+      "column": 50,
+      "type": "Instantaneous samples 60s"
+    },
+    "DWCaseR_O_60": {
+      "column": 51,
+      "type": "Instantaneous samples 60s"
+    },
+    "UWNet_mV_60": {
+      "column": 52,
+      "type": "Instantaneous samples 60s"
+    },
+    "DWNet_mV_60": {
+      "column": 53,
+      "type": "Instantaneous samples 60s"
+    },
+    "BW_DD_mV_60": {
+      "column": 54,
+      "type": "Instantaneous samples 60s"
+    },
+    "PSPUS_mV_60": {
+      "column": 55,
+      "type": "Instantaneous samples 60s"
+    },
+    "NIP_mV_60": {
+      "column": 56,
+      "type": "Instantaneous samples 60s"
+    },
+    "PSPDS_mV_60": {
+      "column": 57,
+      "type": "Instantaneous samples 60s"
+    },
+    "Batt_V_Min": {
+      "column": 58
+    }
+  },
+  "214": {
+    "table_id": {
+      "column": 0,
+      "format": "int, either 213 or 214"
+    },
+    "year": {
+      "column": 1,
+      "format": "yyy"
+    },
+    "jday": {
+      "column": 2,
+      "format": "nnn"
+    },
+    "time": {
+      "column": 3,
+      "notes": "hhmm"
+    },
+    "UWPIR_Wm2_Avg": {
+      "column": 4,
+      "type": "Average"
+    },
+    "DWPIR_Wm2_Avg": {
+      "column": 5,
+      "type": "Average"
+    },
+    "BW_DD_Wm2_Avg": {
+      "column": 6,
+      "type": "Average"
+    },
+    "PSPUS_Wm2_Avg": {
+      "column": 7,
+      "type": "Average"
+    },
+    "NIP_Wm2_Avg": {
+      "column": 8,
+      "type": "Average"
+    },
+    "PSPDS_Wm2_Avg": {
+      "column": 9,
+      "type": "Average"
+    },
+    "UWPIR_Wm2_Std": {
+      "column": 10,
+      "type": "Standard deviation"
+    },
+    "DWPIR_Wm2_Std": {
+      "column": 11,
+      "type": "Standard deviation"
+    },
+    "BW_DD_Wm2_Std": {
+      "column": 12,
+      "type": "Standard deviation"
+    },
+    "PSPUS_Wm2_Std": {
+      "column": 13,
+      "type": "Standard deviation"
+    },
+    "NIP_Wm2_Std": {
+      "column": 14,
+      "type": "Standard deviation"
+    },
+    "PSPDS_Wm2_Std": {
+      "column": 15,
+      "type": "Standard deviation"
+    },
+    "UWPIR_Wm2_Max": {
+      "column": 16,
+      "type": "Maxima"
+    },
+    "DWPIR_Wm2_Max": {
+      "column": 17,
+      "type": "Maxima"
+    },
+    "BW_DD_Wm2_Max": {
+      "column": 18,
+      "type": "Maxima"
+    },
+    "PSPUS_Wm2_Max": {
+      "column": 19,
+      "type": "Maxima"
+    },
+    "NIP_Wm2_Max": {
+      "column": 20,
+      "type": "Maxima"
+    },
+    "PSPDS_Wm2_Max": {
+      "column": 21,
+      "type": "Maxima"
+    },
+    "UWPIR_Wm2_Min": {
+      "column": 22,
+      "type": "Minima"
+    },
+    "DWPIR_Wm2_Min": {
+      "column": 23,
+      "type": "Minima"
+    },
+    "BW_DD_Wm2_Min": {
+      "column": 24,
+      "type": "Minima"
+    },
+    "PSPUS_Wm2_Min": {
+      "column": 25,
+      "type": "Minima"
+    },
+    "NIP_Wm2_Min": {
+      "column": 26,
+      "type": "Minima"
+    },
+    "PSPDS_Wm2_Min": {
+      "column": 27,
+      "type": "Minima"
+    },
+    "UWDomeR_O_20": {
+      "column": 28,
+      "type": "Instantaneous samples 20s"
+    },
+    "UWCaseR_O_20": {
+      "column": 29,
+      "type": "Instantaneous samples 20s"
+    },
+    "DWDomeR_O_20": {
+      "column": 30,
+      "type": "Instantaneous samples 20s"
+    },
+    "DWCaseR_O_20": {
+      "column": 31,
+      "type": "Instantaneous samples 20s"
+    },
+    "UWNet_mV_20": {
+      "column": 32,
+      "type": "Instantaneous samples 20s"
+    },
+    "DWNet_mV_20": {
+      "column": 33,
+      "type": "Instantaneous samples 20s"
+    },
+    "BW_DD_mV_20": {
+      "column": 34,
+      "type": "Instantaneous samples 20s"
+    },
+    "PSPUS_mV_20": {
+      "column": 35,
+      "type": "Instantaneous samples 20s"
+    },
+    "NIP_mV_20": {
+      "column": 36,
+      "type": "Instantaneous samples 20s"
+    },
+    "PSPDS_mV_20": {
+      "column": 37,
+      "type": "Instantaneous samples 20s"
+    },
+    "UWDomeR_O_40": {
+      "column": 38,
+      "type": "Instantaneous samples 40s"
+    },
+    "UWCaseR_O_40": {
+      "column": 39,
+      "type": "Instantaneous samples 40s"
+    },
+    "DWDomeR_O_40": {
+      "column": 40,
+      "type": "Instantaneous samples 40s"
+    },
+    "DWCaseR_O_40": {
+      "column": 41,
+      "type": "Instantaneous samples 40s"
+    },
+    "UWNet_mV_40": {
+      "column": 42,
+      "type": "Instantaneous samples 40s"
+    },
+    "DWNet_mV_40": {
+      "column": 43,
+      "type": "Instantaneous samples 40s"
+    },
+    "BW_DD_mV_40": {
+      "column": 44,
+      "type": "Instantaneous samples 40s"
+    },
+    "PSPUS_mV_40": {
+      "column": 45,
+      "type": "Instantaneous samples 40s"
+    },
+    "NIP_mV_40": {
+      "column": 46,
+      "type": "Instantaneous samples 40s"
+    },
+    "PSPDS_mV_40": {
+      "column": 47,
+      "type": "Instantaneous samples 40s"
+    },
+    "UWDomeR_O_60": {
+      "column": 48,
+      "type": "Instantaneous samples 60s"
+    },
+    "UWCaseR_O_60": {
+      "column": 49,
+      "type": "Instantaneous samples 60s"
+    },
+    "DWDomeR_O_60": {
+      "column": 50,
+      "type": "Instantaneous samples 60s"
+    },
+    "DWCaseR_O_60": {
+      "column": 51,
+      "type": "Instantaneous samples 60s"
+    },
+    "UWNet_mV_60": {
+      "column": 52,
+      "type": "Instantaneous samples 60s"
+    },
+    "DWNet_mV_60": {
+      "column": 53,
+      "type": "Instantaneous samples 60s"
+    },
+    "BW_DD_mV_60": {
+      "column": 54,
+      "type": "Instantaneous samples 60s"
+    },
+    "PSPUS_mV_60": {
+      "column": 55,
+      "type": "Instantaneous samples 60s"
+    },
+    "NIP_mV_60": {
+      "column": 56,
+      "type": "Instantaneous samples 60s"
+    },
+    "PSPDS_mV_60": {
+      "column": 57,
+      "type": "Instantaneous samples 60s"
+    },
+    "Batt_V_Min": {
+      "column": 58
+    },
+    "UWPIR_SN": {
+      "column": 59,
+      "type": "serial number"
+    },
+    "UWPIR_K0": {
+      "column": 60,
+      "type": "calib_coeff_k0"
+    },
+    "UWPIR_K1": {
+      "column": 61,
+      "type": "calib_coeff_k1"
+    },
+    "UWPIR_K2": {
+      "column": 62,
+      "type": "calib_coeff_k2"
+    },
+    "UWPIR_K3": {
+      "column": 63,
+      "type": "calib_coeff_k3"
+    },
+    "UWPIR_Kr": {
+      "column": 64,
+      "type": "calib_coeff_kr"
+    },
+    "DWPIR_SN": {
+      "column": 65,
+      "type": "serial_number"
+    },
+    "DWPIR_K0": {
+      "column": 66,
+      "type": "calib_coeff_k0"
+    },
+    "DWPIR_K1": {
+      "column": 67,
+      "type": "calib_coeff_k1"
+    },
+    "DWPIR_K2": {
+      "column": 68,
+      "type": "calib_coeff_k2"
+    },
+    "DWPIR_K3": {
+      "column": 69,
+      "type": "calib_coeff_k3"
+    },
+    "DWPIR_Kr": {
+      "column": 70,
+      "type": "calib_coeff_kr"
+    },
+    "BW_DD_SN": {
+      "column": 71,
+      "type": "serial_number"
+    },
+    "BW_DD_CF": {
+      "column": 72,
+      "type": "coeff"
+    },
+    "PSPUS_SN": {
+      "column": 73,
+      "type": "serial_number"
+    },
+    "PSPUS_CF": {
+      "column": 74,
+      "type": "coeff"
+    },
+    "PSPDS_SN": {
+      "column": 75,
+      "type": "serial_number"
+    },
+    "PSPDS_CF": {
+      "column": 76,
+      "type": "coeff"
+    },
+    "NIP_SN": {
+      "column": 77,
+      "type": "serial_number"
+    },
+    "NIP_CF": {
+      "column": 78,
+      "type": "coeff"
+    },
+    "StationName": {
+      "column": 79,
+      "format": "site_instrument_facility"
+    },
+    "ProgName": {
+      "column": 80
+    },
+    "PgmStartTime": {
+      "column": 81,
+      "desc": "When the program was started"
+    },
+    "OSVersion": {
+      "column": 82
+    },
+    "LithiumBattery": {
+      "column": 83
+    },
+    "Low12VCount": {
+      "column": 84
+    },
+    "SkippedScan": {
+      "column": 85
+    }
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "header" : {
+      "num_rows" : 2,
+      "row_1" : "datetime when started",
+      "row_2" : "datetime system time - Zeno time",
+      "notes" : "not consistent, some files have headers and others do not"
+    },
+  "data": {
+    "_date": {
+      "column": 0,
+      "format": "TWP-Manus.smet V991023.00 yy/mm/dd",
+      "notes" : "instrument version? date"
+    },
+    "_time": {
+      "column": 1,
+      "format" : "hh:mm:ss",
+      "type" : "time"
+    },
+    "_??": {
+      "column": 2,
+      "type": "???",
+      "notes" : "Unknown? Not used by ingest."
+    },
+    "precip_mean": {
+      "column": 3,
+      "type" : "mean",
+      "cdf_var_name" : "org_precip_rate_mean"
+    },
+    "precip_sd": {
+      "column": 4,
+      "type" : "standard deviation",
+      "cdf_var_name" : "org_precip_rate_std"
+    },
+    "precip_max": {
+      "column": 5,
+      "type" : "max",
+      "cdf_var_name" : "org_precip_rate_max"
+    },
+    "precip_min": {
+      "column": 6,
+      "type" : "min",
+      "cdf_var_name" : "org_precip_rate_min"
+    },
+    "temp_mean": {
+      "column": 7,
+      "type" : "mean",
+      "cdf_var_name" : "temp_mean"
+    },
+    "temp_sd": {
+      "column": 8,
+      "type" : "standard deviation",
+      "cdf_var_name" : "temp_std"
+    },
+    "temp_max": {
+      "column": 9,
+      "type" : "max",
+      "cdf_var_name" : "",
+      "note" : "Not copied to cdf?"
+    },
+    "temp_min": {
+      "column": 10,
+      "type" : "min",
+      "cdf_var_name" : "",
+      "note" : "Not copied to cdf?"
+    },
+    "relh_mean": {
+      "column": 11,
+      "type" : "mean",
+      "cdf_var_name" : "rh_mean"
+    },
+    "relh_sd": {
+      "column": 12,
+      "type" : "standard deviation",
+      "cdf_var_name" : "rn_std"
+    },
+    "relh_max": {
+      "column": 13,
+      "type" : "max",
+      "cdf_var_name" : "",
+      "note" : "Not copied to cdf?"
+    },
+    "relh_min": {
+      "column": 14,
+      "type" : "min",
+      "cdf_var_name" : "",
+      "note" : "Not copied to cdf?"
+    },
+    "vappres_mean": {
+      "column": 15,
+      "type" : "mean",
+      "cdf_var_name" : "vapor_pressure_mean"
+    },
+    "vappres_sd": {
+      "column": 16,
+      "type" : "standard deviation",
+      "cdf_var_name" : "vapor_pressure_std"
+    },
+    "wind1_spd_vec_avg": {
+      "column": 17,
+      "type" : "average",
+      "cdf_var_name" : "wspd_vec_mean"
+    },
+    "wind1_dir_vec_avg": {
+      "column": 18,
+      "type" : "average",
+      "cdf_var_name" : "wdir_vec_mean"
+    },
+    "wind1_spd_arith_avg": {
+      "column": 19,
+      "type" : "average",
+      "cdf_var_name" : "wspd_arith_mean"
+    },
+    "wind1_dir_sd": {
+      "column": 20,
+      "type" : "standard deviation",
+      "cdf_var_name" : "wdir_vec_std"
+    },
+    "wind1_spd_max_gust": {
+      "column": 21,
+      "type" : "max",
+      "cdf_var_name" : "",
+      "note" : "Not copied to cdf?"
+    },
+    "wind1_spd_sd": {
+      "column": 22,
+      "type" : "standard deviation",
+      "cdf_var_name" : "",
+      "note" : "Not copied to cdf?"
+    },
+    "wind1_spd_max": {
+      "column": 23,
+      "type" : "max",
+      "cdf_var_name" : "",
+      "note" : "Not copied to cdf?"
+    },
+    "wind1_spd_min": {
+      "column": 24,
+      "type" : "min",
+      "cdf_var_name" : "",
+      "note" : "Not copied to cdf?"
+    },
+    "wind2_spd_vec_avg": {
+      "column": 25,
+      "type" : "average",
+      "cdf_var_name" : "wspd_vec_mean_aux"
+    },
+    "wind2_dir_vec_avg": {
+      "column": 26,
+      "type" : "average",
+      "cdf_var_name" : "wdir_vec_mean_aux"
+    },
+    "wind2_spd_arith_avg": {
+      "column": 27,
+      "type" : "average",
+      "cdf_var_name" : "wspd_arith_mean_aux"
+    },
+    "wind2_dir_sd": {
+      "column": 28,
+      "type" : "standard deviation",
+      "cdf_var_name" : "wdir_vec_std_aux"
+    },
+    "wind2_spd_max_gust": {
+      "column": 29,
+      "type" : "max",
+      "cdf_var_name" : "",
+      "note" : "Not copied to cdf?"
+    },
+    "wind2_spd_sd": {
+      "column": 30,
+      "type" : "standard deviation",
+      "cdf_var_name" : "",
+      "note" : "Not copied to cdf?"
+    },
+    "wind2_spd_max": {
+      "column": 31,
+      "type" : "max",
+      "cdf_var_name" : "",
+      "note" : "Not copied to cdf?"
+    },
+    "wind2_spd_min": {
+      "column": 32,
+      "type" : "min",
+      "cdf_var_name" : "",
+      "note" : "Not copied to cdf?"
+    },
+    "atmos_pressure": {
+      "column": 33,
+      "type" : "pressure",
+      "cdf_var_name" : "atmos_pressure"
+    },
+    "logger_temp": {
+      "column": 34,
+      "type" : "temperature",
+      "cdf_var_name" : "logger_temp"
+    },
+    "internal_voltage": {
+      "column": 35,
+      "type" : "viltage",
+      "cdf_var_name" : "logger_volt"
+    },
+    "_blank1" : {
+      "column": 36,
+      "type": "None",
+      "notes": "T_Rt/Ro:"
+    },
+    "_blank1" : {
+      "column": 37,
+      "type": "None",
+      "notes": "Air_T:"
+    }
+  }
+}

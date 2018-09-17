@@ -1,0 +1,134 @@
+{
+  "header" : {
+      "num_rows" : 4,
+      "row_1" : "data format,,,",
+      "row_2" : "variables",
+      "row_3" : "units",
+      "row_4" : "type"
+    },
+  "data": {
+    "timestamp": {
+      "column": 0,
+      "format": "yyyy-mm-dd hh:mm:ss.d",
+      "cdf_var": ["base_time", "time_offset", "time"]
+    },
+    "RN": {
+      "column": 1,
+      "notes": "record number. still not totally sure?"
+    },
+    "batt_volt": {
+      "column": 2,
+      "type": "smp",
+      "cdf_var": "logger_volt"
+    },
+    "PTemp": {
+      "column": 3,
+      "type": "smp"
+    },
+    "Pressure_kPa": {
+      "column": 4,
+      "type": "smp",
+      "cdf_var": "atmos_pressure"
+    },
+    "Temp_C_Avg": {
+      "column": 5,
+      "type": "avg",
+      "cdf_var": "temp_mean"
+    },
+    "Temp_C_Std": {
+      "column": 6,
+      "type": "std",
+      "cdf_var": "temp_std"
+    },
+    "RH_Avg": {
+      "column": 7,
+      "type": "avg",
+      "cdf_var": "rh_mean"
+    },
+    "RH_Std": {
+      "column": 8,
+      "type": "std",
+      "cdf_var": "rh_std"
+    },
+    "Vap_Pressure_kPa_Avg": {
+      "column": 9,
+      "type": "avg",
+      "cdf_var" : "vapor_pressure_mean"
+    },
+    "Vap_Pressure_kPa_Std": {
+      "column": 10,
+      "type": "std",
+      "cdf_var": "vapor_pressure_std"
+    },
+    "WS_MS_S_WVT": {
+      "column": 11,
+      "type": "wvc",
+      "cdf_var": "wspd_arith_mean"
+    },
+    "WS_MS_U_WVT": {
+      "column": 12,
+      "type": "wvc",
+      "cdf_var": "wspd_vec_mean"
+    },
+    "WindDir_DU_WVT": {
+      "column": 13,
+      "type": "wvc",
+      "cdf_var": "wdir_vec_mean"
+    },
+    "WindDir_SDU_WVT": {
+      "column": 14,
+      "type": "wvc",
+      "cdf_var": "wdir_vec_std"
+    },
+    "rain_mm_Tot": {
+      "column": 15,
+      "type": "tot",
+      "cdf_var": "tbrg_precip_total",
+      "input_for": [
+        "tbrg_precip_total_corr"
+      ]
+    },
+    "rain_mm_min_corrected": {
+      "column": 16,
+      "type": "smp",
+      "cdf_var": "tbrg_precip_total_corr",
+      "output_of": [
+        "tbrg_precip_total",
+        "R1_tbrg_precip_corr_info",
+        "R2_tbrg_precip_corr_info"
+      ],
+      "equation": "tbrg_precip_total_corr = R1_tbrg_precip_corr_info * tbrg_precip_total**2 + R2_tbrg_precip_corr_info * tbrg_precip_total"
+    },
+    "WS_Slope": {
+      "column": 17,
+      "type": "smp",
+      "cdf_glob": "wind_speed_slope"
+    },
+    "WS_Offset": {
+      "column": 18,
+      "type": "smp",
+      "cdf_glob": "wind_speed_offset"
+    },
+    "TBRG_SN": {
+      "column": 19,
+      "type": "smp",
+      "cdf_glob": "serial_number"
+    },
+    "RainCoefA": {
+      "column": 20,
+      "type": "smp",
+      "cdf_glob": "tbrg_precip_corr_info",
+      "input_for": [
+        "tbrg_precip_total_corr"
+      ]
+    },
+    "RainCoefB": {
+      "column": 21,
+      "type": "smp",
+      "cdf_glob": "tbrg_precip_corr_info",
+      "input_for": [
+        "tbrg_precip_total_corr"
+      ]
+    }
+  }
+}

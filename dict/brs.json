@@ -1,0 +1,26 @@
+{
+  "sgp": {
+    "C1": {
+      "ranges": [
+        {
+          "start": 19900114,
+          "end": 20120220,
+          "dict_name": "brs_CR23X.json",
+          "table_id": [
+            213,
+            214
+          ]
+        },
+        {
+          "start": 20120221,
+          "end": 30000101,
+          "dict_name": "brs_CR3000.json",
+          "table_id": [
+            213,
+            214
+          ]
+        }
+      ]
+    }
+  }
+}
