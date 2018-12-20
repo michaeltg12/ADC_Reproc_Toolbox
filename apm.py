@@ -1,5 +1,38 @@
 #!/apps/base/python3/bin/python3
 
+"""
+Author: Michael Giansiracusa
+Email: giansiracumt@ornl.gov
+
+Purpose:
+    This module is a wrapper and manager for executing the steps in a
+    reprocessing task and provides access to various utility tools.
+
+Arguments
+    required arguments
+        job : str
+            A DQR for this job. The reprocessing team has agreed on using the
+            DQR # as the primary job name and several of the tools require it
+            to operate but if the situation arises where the job does not have
+            a DQR # then another job name can be used.
+    commands
+        auto
+        stage
+        rename
+        process
+        review
+        remove
+        archive
+        cleanup
+
+    optional arguments
+
+Output:
+    This script is the main workflow and tool manager for ADC Reprocessing.
+    This tool will manage different tools and workflows for the reprocessing
+    team and will provide help and guidance for each tool or workflow.
+"""
+
 # Ctrl+C Handler
 import signal
 
@@ -10,14 +43,19 @@ from os.path import abspath
 
 # Input Parsing
 import argparse
+import re
 
 # Time Handling
 import time
 from datetime import date
 from datetime import timedelta
 
-# Handle json import from file
+# File handlers
 import json
+import yaml
+
+# Logging
+import logging
 
 # Fix backspace on input
 import readline
@@ -45,10 +83,12 @@ from apm.classes.system import jprint
 
 from apm import test
 
+DQR_REGEX = re.compile(r"D\d{6}(\.)*(\d)*")
+
 global max_tries
 global today
 
-max_tries = 3;
+max_tries = 3
 today = int(date.fromtimestamp(time.time()).strftime("%Y%m%d"))
 
 # TODO FOR DEBUGGING DURRING DEVELOPMENT
@@ -57,14 +97,21 @@ from inspect import currentframe, getframeinfo, getouterframes
 # print("\n\t*** outerframes ***\n{}\n".format(getouterframes(currentframe(), context=2)))
 
 def main():
+    # setup logging with a config file and get main reproc_logger
+    global_config = yaml.load(open(".config/logging_config.yaml"))
+    logging.config.dictConfig(global_config['logging'])
+    reproc_logger = logging.getLogger("reproc_logger")
+
+    # if no cmd line args, add -h before parse_args to display help
     if not len(sys.argv) > 1:
         sys.argv.append("-h")
 
+    # printing current version
     if '-v' in sys.argv:
-        print(apm.__version__)
+        reproc_logger.info(apm.__version__)
         return
 
-    # Retrieve arguments from user
+    # Retrieve arguments from user and get command
     config = parse_args()
     command = config['command'].lower()
 
@@ -73,24 +120,21 @@ def main():
         test_config = test.config()
 
         sys.argv = [sys.argv[0]]
-        jprint(config, sort_keys=True, indent=4)
+        reproc_logger.info(jprint(config, sort_keys=True, indent=4))
         unittest.main(buffer=True)
         # unittest.main()
         return
 
-    # Not a test
+    # Prints a list of the available vaps
     if command == 'info' or command == 'vapinfo':
         vap = VapMgr({})
-        vap.vap_info()
+        vaps = vap.vap_info()
+        reproc_logger.info(" Available vaps --\n\t\t--{}".format("\n-- ".join(vaps)))
         return
 
-    if command == 'auto':
-        temp = validate_config(config, command)
-        config = temp if temp else config
-    else:
-        # Validate user arguments
-        temp = validate_config(config, command)
-        config = temp if temp else config
+    # Validate user arguments
+    temp = validate_config(config, command)
+    config = temp if temp else config
 
     if command == 'check':
         jprint(config, sort_keys=True, indent=4)
@@ -105,7 +149,7 @@ def main():
 
     # Check to see if any files are not currently being tracked
     # Or if any tracked files have been deleted
-    print("Checking status of tracked files...", end="")
+    print("Checking status of tracked files...", end=" ")
     sys.stdout.flush()
 
     json_file = '{0}/{1}/{1}.json'.format(config['stage'], config['job'])
@@ -321,7 +365,8 @@ def parse_args():
     stage_type = parser.add_mutually_exclusive_group()
 
     # Setup positional arguments
-    parser.add_argument('command', help='Which of the APM stages to run: stage, rename, process, review, remove, archive, cleanup')
+    parser.add_argument('command', help='Which of the APM stages to run: '
+                                        'auto, stage, rename, process, review, remove, archive, cleanup')
 
     # Demo options
     parser.add_argument('--demo', help='Prep for different stages of a demo, available options include: remove, archive, cleanup')
@@ -429,8 +474,15 @@ def parse_args():
     return args
 
 def validate_config(config, command):
+    # files obj has a attribute default which is a generic, empty config
     f = Files(config)
+
     if command == "auto":
+        # check if job is a dqr else we can't use auto staging
+        try:
+            dqr = DQR_REGEX.search(config['job']).group()
+        except AttributeError:
+            print("Job")
         temp = f.db_load_config()
     else:
         temp = f.load_config()

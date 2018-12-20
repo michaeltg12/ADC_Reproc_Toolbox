@@ -82,7 +82,8 @@ class Files:
         }
 
     def load_db_config(self):
-        with open(os.path.join(REPROC_HOME, 'ADC_Reproc_Toolbox', '.config', '.arm_db_connect')) as arm_db_config:
+        # load production and development configuration files as json
+        with open('.config', '.arm_db_connect','r') as arm_db_config:
             config_json = json.load(arm_db_config)
             development_config = config_json["development_config"]
             production_config = config_json["production_config"]
@@ -91,15 +92,19 @@ class Files:
     def db_load_config(self):
         production_config, development_config = self.load_db_config()
 
+        # connect to armdb using armlib and module written by Alka Singh
         reproc_db = ReprocDB(production_config, self.config['job'])
+        # get start and end datetime from armdb.arm_int2.pifcardqr2.varname_metric
         start_date, end_date = reproc_db.get_time_period()
         try:
+            # TODO not sure why I needed long and short versions of the date
             self.config['start_date'] = start_date.strftime("%Y-%m-%d %H:%M:%S")
             self.config['end_date'] = end_date.strftime("%Y-%m-%d %H:%M:%S")
             self.config['begin'] = start_date.strftime("%Y%m%d")
             self.config['end'] = end_date.strftime("%Y%m%d")
         except AttributeError as ae:
             exit('{} - db_load_config - get_time_period returned string. May be connected to wrong db.'.format(ae))
+        # gets a list of affected datastreams from armdb.arm_int2.pifcardqr2.varname_metric by dqr based on dqrid
         self.config['datastream'] = reproc_db.get_affected_datastreams()
 
         #TODO this architecture needs to be verified

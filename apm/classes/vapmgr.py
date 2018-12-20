@@ -28,9 +28,10 @@ class VapMgr:
             os.symlink('/data/conf/ops/vapmgr.conf', self.file)
 
     def vap_info(self):
-        command = '/apps/ds/bin/vapmgr -i'
+        return ['  > _adi_acecor', '  > _aerinf', '  > _aeriprof', '  > _aerosolbe', '  > _aip', '  > _aod', '  > _aosaopclap', '  > _aosaoppsap', '  > _aosccnavg', '  > _baebbr', '  > _beflux', '  > _ccnprof', '  > _cldtype', '  > _dlprof_wind', '  > _dlprof_wstats', '  > _griddedsonde', '  > _gvrpwv', '  > _interpolatedsonde', '  > _kazrarscl', '  > _kazrcor', '  > _kazrcorc0', '  > _langley', '  > _lssonde', '  > _masc_flake_anal', '  > _mergesonde', '  > _mergesonde2', '  > _mfrsrcip', '  > _mfrsrcldod', '  > _microbase', '  > _mplcmask', '  > _mwrret', '  > _ndrop', '  > _pblhtsonde', '  > _pblhtsondeyr', '  > _qcrad_beflux', '  > _qcrad_brs', '  > _qcrad_sirs', '  > _radflux', '  > _radflux2', '  > _rlprof2_merge', '  > _rlprof2_mr', '  > _rlprof2_temp', '  > _rlprof_asr0', '  > _rlprof_asr1', '  > _rlprof_asr10', '  > _rlprof_asr10_diff', '  > _rlprof_be10', '  > _rlprof_calib', '  > _rlprof_dep10', '  > _rlprof_dep2', '  > _rlprof_ext1', '  > _rlprof_ext10', '  > _rlprof_ext10_diff', '  > _rlprof_fex', '  > _rlprof_merge', '  > _rlprof_mr0', '  > _rlprof_mr10', '  > _rlprof_temp10', '  > _rlprof_temp60', '  > _sacradvvad', '  > _sashe_aod', '  > _sashe_langley', '  > _sfccldgrid', '  > _shallowcumulus', '  > _sondeadjust', '  > _summaryqc', '  > _surfspecalb', '  > _swfluxanal', '  > _twrmr']
+        command = ['/apps/ds/bin/vapmgr', '-i']
         try:
-            vaps = subprocess.check_output(command)
+            vaps = subprocess.check_output(command).decode('utf-8')
         except subprocess.CalledProcessError as e:
             vaps = ""
 
@@ -40,15 +41,7 @@ class VapMgr:
             if len(v) > 2 and v[2] == '>':
                 vaplist.append(v)
 
-        print('')
-        print('Available VAPs')
-        print('')
-
-        for v in vaplist:
-            print(v)
-
-        print('')
-        return
+        return vaplist
 
 
     def add_to_env(self):
