@@ -1,0 +1,7 @@
+# Help text for the various commands
+# ----------------------------------
+
+# Help for tar bundling script
+tar_files:
+  help: "This script will tar files in a directory. Build a list using the regular expression given, add pattern to tar or files at the given index, remove element from tar or files at the given index. Tar file will have the name of the first file of each day. Files will be added to tars and originals moved to, files_in_tars/ under the current working directory. Adding a pattern to a file will be in front of the index specified. '0' would be before index '0' or at the front of the file. Adding at the end of the file gets a little buggy if you are also removing indexes. All tar files will have .tar at then end."
+  example: "EXAMPLE  | tar_em.py -re 'sgpmetE33*' -ct '3' -at '0 Talbe1.' -cf '4' -af '1 Table2.' | tar_em.py -re '*201706*' -ct '5' -af '2 table1' | tar_em.py -re '*20170[56]*' -ct '1 3 4 5 6'ERRORS | tar_em.py -ct '1' --> must have -re argument | tar_em.py -re 'oliaos*' -ct '1 3 4 5' -at '5 test' --> adding and removing is buggy, lower add index to achive intended results | tar_em.py -re 'sgp*' -af 'Table2 1' --> will add '1' at index '2'"

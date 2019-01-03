@@ -1,0 +1,14 @@
+ {
+   "production_config" : {
+     "connection_string" : "dbname=arm_all user=utilities_select_only password=utilities_select_only011 application_name=reproc_tool host=armdbprod.ornl.gov",
+     "max_retry_delay" : "60",
+     "retry_backoff" : "2",
+     "retry_delay" : "1"
+   },
+   "development_config" : {
+     "connection_string": "dbname=arm_all user=utilities_select_only password=utilities_select_only738 application_name=reproc_tool host=armdev-pgdb",
+     "max_retry_delay": "60",
+     "retry_backoff": "2",
+     "retry_delay": "1"
+   }
+ }

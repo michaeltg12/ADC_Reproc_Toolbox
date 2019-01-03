@@ -1,0 +1,122 @@
+archive
+  L site
+    L ds
+conf
+D181011.5.json - File
+        {
+            "oli": {
+                "oliirtM1.00": {
+                    "irt200ms.20181003230000.dat": {
+                        "current_name": "irt200ms.20181003230000.dat",
+                        "deleted": false,
+                        "duplicate_files": [],
+                        "original_name": "oliirtM1.00.20181004.000501.raw.irt200ms.20181003230000.dat",
+                        "processed_name": null,
+                        "stripped_name": "irt200ms.20181003230000.dat",
+                        "unpacked_name": "oliirtM1.00.20181004.000501.raw.irt200ms.20181003230000.dat",
+                        "uuid": "a2b4dc51-1440-4044-ade0-82baa7c7412c"
+                    },
+                 }
+             }
+        }
+db
+env.csh - File
+        setenv DATA_HOME "/data/project/0021718_1509993009/D181011.5"
+        setenv COLLECTION_DATA "$DATA_HOME/collection"
+        setenv CONF_DATA "$DATA_HOME/conf"
+        setenv LOGS_DATA "$DATA_HOME/logs"
+        setenv HEALTH_DATA "$DATA_HOME/health"
+        setenv DB_DATA "$DATA_HOME/db"
+        setenv ARCHIVE_DATA "/data/archive"
+        setenv DATASTREAM_DATA "$DATA_HOME/datastream"
+        setenv WWW_DATA "$DATA_HOME/www"
+        setenv OUT_DATA "$DATA_HOME/out"
+        setenv QUICKLOOK_DATA "$DATA_HOME/quicklooks"
+        setenv TMP_DATA "$DATA_HOME/tmp"
+health
+out
+scripts
+www
+  L site
+    L ds
+      L .bad
+      L .good
+      L .tars
+D181011.5.conf - File
+        {
+            "alias": null,
+            "begin": 20181005,
+            "cleanup_status": {
+                "archive": {
+                    "files_deleted": false,
+                    "files_released": false,
+                    "move_files": false,
+                    "status": false
+                },
+                "cleanup": {
+                    "files_archived": false,
+                    "files_cleaned_up": false,
+                    "status": false
+                },
+                "remove": {
+                    "archive_list": false,
+                    "deletion_list": false,
+                    "files_bundled": false,
+                    "status": false
+                },
+                "review": {
+                    "status": true
+                }
+            },
+            "command": "stage",
+            "compare": true,
+            "datastream": null,
+            "db_up": true,
+            "demo": null,
+            "devel": false,
+            "duplicates": false,
+            "end": 20181011,
+            "exit": false,
+            "facility": "M1",
+            "iflags": null,
+            "ingest": true,
+            "instrument": "irt",
+            "interactive": false,
+            "job": "D181011.5",
+            "quiet": false,
+            "rename": true,
+            "site": "oli",
+            "source": "/data/archive",
+            "stage": "/data/project/0021718_1509993009",
+            "username": "giansiracusa",
+            "vap": false
+        }
+datastream
+  L site
+    L ds
+env.bash - File
+         DATA_HOME="/data/project/0021718_1509993009/D181011.5"
+         COLLECTION_DATA="$DATA_HOME/collection"
+         CONF_DATA="$DATA_HOME/conf"
+         LOGS_DATA="$DATA_HOME/logs"
+         HEALTH_DATA="$DATA_HOME/health"
+         DB_DATA="$DATA_HOME/db"
+         ARCHIVE_DATA="/data/archive"
+         DATASTREAM_DATA="$DATA_HOME/datastream"
+         WWW_DATA="$DATA_HOME/www"
+         OUT_DATA="$DATA_HOME/out"
+         QUICKLOOK_DATA="$DATA_HOME/quicklooks"
+         TMP_DATA="$DATA_HOME/tmp"
+file_comparison
+  L raw
+    L site
+      L ds
+  L tar
+    L site
+      L ds
+logs
+  L site
+    L lockfiles
+    L proc_logs
+quicklooks
+tmp

@@ -1,0 +1,27 @@
+ # db_alias     host              db_name      user            password
+ default        pgdb.dmf          dsdb         dsdb_read       sea89truck
+ dsdb           pgdb.dmf.arm.gov  dsdb_reproc  dsdb_data       tall21mountain
+ apm            pgdb.dmf.arm.gov  dsdb_reproc  dsdb_data       tall21mountain
+ dsdb_data      pgdb.dmf          dsdb         dsdb_data       tall21mountain
+ dsdb_dmf       pgdb.dmf          dsdb         dsdb_data       tall21mountain
+ dsdb_admin     pgdb.dmf          dsdb         dsdb_admin
+ dsdb_read      pgdb.dmf          dsdb         dsdb_read        sea89truck
+ #ingest        pgdb.dmf          dsdb         dsdb_ingest      sun9jet4day
+ ingest         pgdb.dmf          dsdb         dsdb_data        tall21mountain
+ collection     pgdb.dmf          dsdb         dsdb_collection  pen11grass
+ dsview         pgdb.dmf          dsdb         dsdb_dsview      wire3car7
+ server_config  pgdb.dmf          armdb_server_config  postgres
+ dscron         pgdb.dmf          dsdb         dsdb_data        tall21mountain
+ doorstep       pgdb.dmf          dsdb         dsdb_data        tall21mountain
+ release        pgdb.dmf          dsdb         dsdb_data        tall21mountain
+ rename         pgdb.dmf          dsdb         dsdb_data        tall21mountain
+ bundle         pgdb.dmf          dsdb         dsdb_data        tall21mountain
+ vapmgr         pgdb.dmf          dsdb         dsdb_data        tall21mountain
+ pgtdb          pgdb.dmf          dsdb         dsdb_data        tall21mountain
+ junk           pgdb.dmf          testdb       dsdb_data        tall21mountain
+ inva           pgdb.dmf          inventory    inventory_admin  river34bug
+ inventory      pgdb.dmf          inventory    inventory_data   mug83table
+ inv_data       pgdb.dmf          inventory    inventory_data   mug83table
+ release_pull   armdb-foo.ornl.gov arm_all      dmf_data_release dmf_data_release363
+ dqrdb http://www.arm.gov/lib/services/db?db=dqr&flat=1
+ #dqrdb http://www.arm.gov/lib/services/db?db=dqr&flat=1&dev=1
