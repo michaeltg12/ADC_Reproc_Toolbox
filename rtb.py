@@ -43,7 +43,10 @@ import unittest
 import yaml
 from datetime import date
 from logging import config, getLogger
-# from support.interactive import Interactive
+
+from commands.stage import stage
+from commands.rename import rename
+# from commands.release0 import updateDB
 
 HEADER = '''
  ____                             _____           _ _
@@ -57,7 +60,6 @@ global DATASTREAM_REGEX
 global DQR_REGEX
 global REPROC_HOME
 global MAX_TRIES
-global reproc_logger
 global TODAY
 
 HELP = yaml.load(open('documentation/help.yaml'))
@@ -80,26 +82,14 @@ plugin_folder = os.path.join(os.path.dirname(__file__), 'tools')
 def main():
     pass
 
-@click.command(help='This will stage some fucking files!')
-@click.option('--datastream', '-ds', help='The datastream to stage.')
-@click.option('--start', '-s', help='Start date')
-@click.option('--end', '-e', help='End date')
-def stage(datastream, start, end):
-    click.echo('stage some shit with Josephs badass module.')
-    click.echo(f'ds={datastream}: {start} - {end}')
-
-@click.command(help='This will rename some fucking files! Yea!')
-@click.option('--indexes', '-i', default='0 1 2 3', help='The fucking indexes to cut! Fuck yea!')
-def rename(indexes):
-    click.echo('rename some files.')
-
 @click.command(help='IDK if this will work. Whoa!')
 def toolz():
-    click.echo('add some helpful description here! Boom!')
+    reproc_logger.info('add some helpful description here! Boom!')
     cli()
 
 main.add_command(stage)
 main.add_command(rename)
+# main.add_command(release)
 main.add_command(toolz)
 
 class MyCLI(click.MultiCommand):
@@ -116,7 +106,7 @@ class MyCLI(click.MultiCommand):
         return rv
 
     def get_command(self, ctx, name):
-        click.echo(f'name = {name}')
+        reproc_logger.info('name = {}'.format(name))
         ns = {}
         fn = os.path.join(plugin_folder, name + '.py')
         try:
@@ -124,14 +114,14 @@ class MyCLI(click.MultiCommand):
                 code = compile(f.read(), fn, 'exec')
                 eval(code, ns, ns)
         except FileNotFoundError:
-            click.echo(f'Available commands = {self.list_commands(ctx)}')
-            raise click.UsageError(f'Invalid command: {name}')
+            reproc_logger.warning('Available commands = {}'.format(self.list_commands(ctx)))
+            raise click.UsageError('Invalid command: {}'.format(name))
         try:
             return ns['cli']
         except KeyError:
-            click.echo(f'Available commands = {self.list_commands(ctx)}')
-            click.echo(self.help)
-            raise click.UsageError(f'Invalid command: {name}')
+            reproc_logger.warning('Available commands = {}'.format(self.list_commands(ctx)))
+            reproc_logger.warning(self.help)
+            raise click.UsageError('Invalid command: {}'.format(name))
 
 cli = MyCLI(help='This tool\'s subcommands are loaded from a plugin folder dynamically.')
 
@@ -152,8 +142,8 @@ if __name__ == '__main__':
 # @click.argument('command')
 # def test_main(verbose, job, datastream, user, password, command):
 #     reproc_logger.info(HEADER)
-#     print("✨ main method in the toolbox ✨")
-#     if verbose: print("Verbose mode 📢")
+#     print(" main method in the toolbox ")
+#     if verbose: print("Verbose mode ")
 #     if job: print(f'job = {job}')
 #     if datastream: print(f'datastream = {datastream}')
 #     if user: print(f'username = {user}')
