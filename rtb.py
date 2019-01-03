@@ -83,14 +83,14 @@ def main():
     pass
 
 @click.command(help='IDK if this will work. Whoa!')
-def toolz():
+def tools():
     reproc_logger.info('add some helpful description here! Boom!')
     cli()
 
 main.add_command(stage)
 main.add_command(rename)
 # main.add_command(release)
-main.add_command(toolz)
+main.add_command(tools)
 
 class MyCLI(click.MultiCommand):
     '''Main CLI for the Reprocessing toolbox'''
@@ -127,8 +127,8 @@ cli = MyCLI(help='This tool\'s subcommands are loaded from a plugin folder dynam
 
 if __name__ == '__main__':
     print(sys.argv[:])
-    if sys.argv[1] == 'toolz':
-        sys.argv.remove('toolz')
+    if len(sys.argv[:]) > 1 and sys.argv[1] == 'tools':
+        sys.argv.remove('tools')
         cli()
     else:
         main()
