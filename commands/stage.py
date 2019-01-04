@@ -1,5 +1,4 @@
 import click
-
 from logging import getLogger
 reproc_logger = getLogger("reproc_logger")
 
