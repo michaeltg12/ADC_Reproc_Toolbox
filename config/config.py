@@ -9,4 +9,4 @@ datastream_regex = compile(r"(acx|awr|dmf|fkb|gec|hfe|mag|mar|mlo|nic|nsa|osc|pg
                                       r"tmp|wbu|zrh|asi|cjc|ena|gan|grw|isp|mao|mcq|nac|nim|oli|osi|pvc|"
                                       r"rld|sgp|smt|twp|yeu)\w+\.(\w){2}")
 reproc_home = environ.get('REPROC_HOME')
-int(date.fromtimestamp(time()).strftime("%Y%m%d"))
+today = int(date.fromtimestamp(time()).strftime("%Y%m%d"))

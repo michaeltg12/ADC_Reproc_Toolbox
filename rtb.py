@@ -35,6 +35,7 @@ Output:
 """
 
 import click
+import logging
 import os
 import re
 import sys
@@ -44,8 +45,9 @@ import yaml
 from datetime import date
 from logging import config, getLogger
 
-from commands import stage
-from commands import rename, printStuff
+from commands.stage import stage
+from commands.rename import rename, printStuff
+from config.config import *
 # from commands.release0 import updateDB
 
 HEADER = '''
@@ -56,12 +58,6 @@ HEADER = '''
 |_| \_\___| .__/|_|  \___/ \___|   |_|\___/ \___/|_|_.__/ \___/_/\_\\
 '''
 
-global DATASTREAM_REGEX
-global DQR_REGEX
-global REPROC_HOME
-global MAX_TRIES
-global TODAY
-
 # setup logging with a config file and get main reproc_logger
 global_config = yaml.load(open(".config/logging_config.yaml"))
 config.dictConfig(global_config['logging'])
@@ -70,21 +66,18 @@ reproc_logger = getLogger("reproc_logger")
 plugin_folder = os.path.join(os.path.dirname(__file__), 'tools')
 
 class Config(object):
-    def __init__(self, debug, *args, **kwargs):
-        self.debug = debug
+    def __init__(self, *args, **kwargs):
         self.help = yaml.load(open('documentation/help.yaml'))
-        self.dqr_regex = re.compile(r"D\d{6}(\.)*(\d)*")
-        self.datastream_regex = re.compile(r"(acx|awr|dmf|fkb|gec|hfe|mag|mar|mlo|nic|nsa|osc|pgh|pye|sbs|shb|"
-                                      r"tmp|wbu|zrh|asi|cjc|ena|gan|grw|isp|mao|mcq|nac|nim|oli|osi|pvc|"
-                                      r"rld|sgp|smt|twp|yeu)\w+\.(\w){2}")
-        self.reproc_home = os.environ.get('REPROC_HOME')
-        self.today = int(date.fromtimestamp(time.time()).strftime("%Y%m%d"))
+        self.dqr_regex = dqr_regex
+        self.datastream_regex = datastream_regex
+        self.reproc_home = reproc_home
+        self.today = today
 
 @click.group()
-@click.option('--debug', '-D', help='Enable debug messages.')
+@click.version_option()
 @click.pass_context
-def main(ctx, debug):
-    ctx.obj = Config(debug)
+def main(ctx):
+    ctx.obj = Config()
     pass
 
 @main.group(help='main group for all rename commands.')

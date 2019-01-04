@@ -4,9 +4,10 @@ reproc_logger = getLogger('reproc_logger')
 
 @click.command('rename', help='This will rename some files! Yea!')
 @click.option('--indexes', '-i', default='', help='The indexes to cut!') # this has to be the last
+
 @click.pass_obj
 def rename(config, indexes):
-    reproc_logger.info(config)
+    reproc_logger.debug('rename debug mode active.')
     reproc_logger.info('indexes = {}'.format(indexes))
     reproc_logger.info('rename some files.')
     printStuff()
