@@ -44,8 +44,8 @@ import yaml
 from datetime import date
 from logging import config, getLogger
 
-from commands.stage import stage
-from commands.rename import rename
+from commands import stage
+from commands import rename, printStuff
 # from commands.release0 import updateDB
 
 HEADER = '''
@@ -62,15 +62,6 @@ global REPROC_HOME
 global MAX_TRIES
 global TODAY
 
-HELP = yaml.load(open('documentation/help.yaml'))
-DQR_REGEX = re.compile(r"D\d{6}(\.)*(\d)*")
-DATASTREAM_REGEX = re.compile(r"(acx|awr|dmf|fkb|gec|hfe|mag|mar|mlo|nic|nsa|osc|pgh|pye|sbs|shb|"
-                              r"tmp|wbu|zrh|asi|cjc|ena|gan|grw|isp|mao|mcq|nac|nim|oli|osi|pvc|"
-                              r"rld|sgp|smt|twp|yeu)\w+\.(\w){2}")
-REPROC_HOME = os.environ.get('REPROC_HOME')
-TODAY = int(date.fromtimestamp(time.time()).strftime("%Y%m%d"))
-
-
 # setup logging with a config file and get main reproc_logger
 global_config = yaml.load(open(".config/logging_config.yaml"))
 config.dictConfig(global_config['logging'])
@@ -78,17 +69,36 @@ reproc_logger = getLogger("reproc_logger")
 
 plugin_folder = os.path.join(os.path.dirname(__file__), 'tools')
 
+class Config(object):
+    def __init__(self, debug, *args, **kwargs):
+        self.debug = debug
+        self.help = yaml.load(open('documentation/help.yaml'))
+        self.dqr_regex = re.compile(r"D\d{6}(\.)*(\d)*")
+        self.datastream_regex = re.compile(r"(acx|awr|dmf|fkb|gec|hfe|mag|mar|mlo|nic|nsa|osc|pgh|pye|sbs|shb|"
+                                      r"tmp|wbu|zrh|asi|cjc|ena|gan|grw|isp|mao|mcq|nac|nim|oli|osi|pvc|"
+                                      r"rld|sgp|smt|twp|yeu)\w+\.(\w){2}")
+        self.reproc_home = os.environ.get('REPROC_HOME')
+        self.today = int(date.fromtimestamp(time.time()).strftime("%Y%m%d"))
+
 @click.group()
-def main():
+@click.option('--debug', '-D', help='Enable debug messages.')
+@click.pass_context
+def main(ctx, debug):
+    ctx.obj = Config(debug)
     pass
 
-@click.command(help='IDK if this will work. Whoa!')
+@main.group(help='main group for all rename commands.')
+def rename_group():
+    click.echo('rename group')
+
+@click.command(help='IDK if this will work. Whoa! It works!')
 def tools():
-    reproc_logger.info('add some helpful description here! Boom!')
+    reproc_logger.info('Add some helpful description here! Boom!')
     cli()
 
 main.add_command(stage)
-main.add_command(rename)
+rename_group.add_command(rename)
+rename_group.add_command(printStuff)
 # main.add_command(release)
 main.add_command(tools)
 
@@ -115,6 +125,7 @@ class MyCLI(click.MultiCommand):
                 eval(code, ns, ns)
         except FileNotFoundError:
             reproc_logger.warning('Available commands = {}'.format(self.list_commands(ctx)))
+            reproc_logger.warning(self.help)
             raise click.UsageError('Invalid command: {}'.format(name))
         try:
             return ns['cli']
@@ -127,49 +138,13 @@ cli = MyCLI(help='This tool\'s subcommands are loaded from a plugin folder dynam
 
 if __name__ == '__main__':
     print(sys.argv[:])
-    if len(sys.argv[:]) > 1 and sys.argv[1] == 'tools':
+    if len(sys.argv[:]) == 1:
+        sys.argv.append('--help')
+    if sys.argv[1] == 'tools':
         sys.argv.remove('tools')
         cli()
     else:
         main()
 
-# @click.command()
-# @click.option('--verbose', '-V', is_flag=True, help='Will print verbose messages.')
-# @click.option('--job', '-j', default='', help='Job name. Should be a DQR #. Other names may break some functionality.')
-# @click.option('--datastream', '-d', multiple=True, default='', help='Datastreams for this stage of reprocessing.')
-# @click.option('--user', '-u', default='', help='Your 3 character ucams username.')
-# @click.password_option()
-# @click.argument('command')
-# def test_main(verbose, job, datastream, user, password, command):
-#     reproc_logger.info(HEADER)
-#     print(" main method in the toolbox ")
-#     if verbose: print("Verbose mode ")
-#     if job: print(f'job = {job}')
-#     if datastream: print(f'datastream = {datastream}')
-#     if user: print(f'username = {user}')
-#     print(password)
-#     print(command)
-#
-# @click.group(invoke_without_command=True)
-# @click.option('--debug', '-D', is_flag=True, default=False, help='Enable debug messages.')
-# @click.pass_context
-# def main(ctx, debug):
-#     click.echo('main working.')
-#     if debug: click.echo('debug on in main.')
-#     ctx.ensure_object(dict)
-#     ctx.obj['DEBUG'] = debug
-#     pass
-#
-#
-# @main.command(help=HELP['tar_files']['help'])
-# @click.option('--regex', '-re', default='*', help='Python regular expression to build list of files to tar.')
-# @click.option('-cuttar', '-ct', help='Cut indexes from tar file name. Indexes separated by spaces and starts at 0')
-# def tar_files(ctx, regex, cuttar):
-#     click.echo('tarfiles method')
-#     if ctx.obj['DEBUG']: click.echo('debug on in tar_files')
-#     click.echo(f'regex = {regex}')
-#     click.echo(f'cuttar = {cuttar}')
-#
-# if __name__ == "__main__":
 
 
