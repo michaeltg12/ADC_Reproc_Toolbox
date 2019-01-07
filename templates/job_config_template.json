@@ -1,0 +1,55 @@
+{
+  "alias": null,
+  "command": null,
+  "compare": true,
+  "datastreams": {
+    "ds1": {
+      "start": null,
+      "end": null,
+      "site": null,
+      "instrument": null,
+      "facility": null,
+      "duplicates": false,
+      "stage": {
+        "source": null
+      },
+      "ingest": {
+        "command": null,
+        "status": null
+      },
+      "vap": {
+        "command": null,
+        "status": null
+      },
+      "archive": {
+        "files_deleted": false,
+        "files_released": false,
+        "move_files": false,
+        "status": false
+      },
+      "cleanup": {
+        "files_archived": false,
+        "files_cleaned_up": false,
+        "status": false
+      },
+      "remove": {
+        "archive_list": false,
+        "deletion_list": false,
+        "files_bundled": false,
+        "status": false
+      },
+      "review": {
+        "status": true
+      }
+    }
+  },
+  "db_up": true,
+  "demo": null,
+  "devel": false,
+  "exit": false,
+  "interactive": false,
+  "job": null,
+  "rename": true,
+  "stage": null,
+  "username": null
+}

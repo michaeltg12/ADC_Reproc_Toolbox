@@ -45,9 +45,10 @@ import yaml
 from datetime import date
 from logging import config, getLogger
 
-from commands.stage import stage
-from commands.rename import rename, printStuff
+# TODO may want to change this to only import specific modules
 from config.config import *
+from commands.stage import *
+from commands.rename import *
 # from commands.release0 import updateDB
 
 HEADER = '''
@@ -58,44 +59,54 @@ HEADER = '''
 |_| \_\___| .__/|_|  \___/ \___|   |_|\___/ \___/|_|_.__/ \___/_/\_\\
 '''
 
-# setup logging with a config file and get main reproc_logger
-global_config = yaml.load(open(".config/logging_config.yaml"))
-config.dictConfig(global_config['logging'])
-reproc_logger = getLogger("reproc_logger")
-
 plugin_folder = os.path.join(os.path.dirname(__file__), 'tools')
 
 class Config(object):
-    def __init__(self, *args, **kwargs):
+    def __init__(self, debug, *args, **kwargs):
+        self.debug = debug
         self.help = yaml.load(open('documentation/help.yaml'))
         self.dqr_regex = dqr_regex
         self.datastream_regex = datastream_regex
         self.reproc_home = reproc_home
         self.today = today
+        # setup logging with a config file and get main reproc_logger
+        global_config = yaml.load(open("config/logging_config.yaml"))
+        config.dictConfig(global_config['logging'])
+        self.reproc_logger = getLogger("reproc_logger")
+        if self.debug:
+            self.reproc_logger.setLevel(logging.DEBUG)
 
 @click.group()
-@click.version_option()
+@click.version_option(version=version)
+@click.option('--debug', '-D', help='Print debug messages to console.')
 @click.pass_context
-def main(ctx):
-    ctx.obj = Config()
+def main(ctx, debug):
+    
+    """ Main cli entry point """
+    reproc_logger.debug('debug logging enabled.')
+    ctx.obj = Config(debug)
     pass
+
+@main.group(help='Staging module and staging support programs')
+def staging():
+    """ Staging module entry point """
 
 @main.group(help='main group for all rename commands.')
 def rename_group():
-    click.echo('rename group')
+    """ Rename module entry point """
 
 @click.command(help='IDK if this will work. Whoa! It works!')
 def tools():
-    reproc_logger.info('Add some helpful description here! Boom!')
+    """ Plugin Manager entry point """
     cli()
 
-main.add_command(stage)
+staging.add_command(stage)
 rename_group.add_command(rename)
 rename_group.add_command(printStuff)
 # main.add_command(release)
 main.add_command(tools)
 
-class MyCLI(click.MultiCommand):
+class PluginManager(click.MultiCommand):
     '''Main CLI for the Reprocessing toolbox'''
 
     def list_commands(self, ctx):
@@ -127,12 +138,28 @@ class MyCLI(click.MultiCommand):
             reproc_logger.warning(self.help)
             raise click.UsageError('Invalid command: {}'.format(name))
 
-cli = MyCLI(help='This tool\'s subcommands are loaded from a plugin folder dynamically.')
+cli = PluginManager(help='This tool\'s subcommands are loaded from a plugin folder dynamically.')
 
 if __name__ == '__main__':
-    print(sys.argv[:])
+    """ This is done so that the debug flag can be anywhere in the
+    command line and won't mess up the argument list. It doesn't 
+    work unless this specific logger gets passed around which might
+    be the way it has to be. """
+    if '-D' in sys.argv:
+        reproc_logger.setLevel(logging.DEBUG)
+        try: sys.argv.remove('-D')
+        except: pass
+        try: sys.argv.remove('--debug')
+        except: pass
+
+    """ This is done so that when the user provides no arguments, 
+    the help message is displayed. """
     if len(sys.argv[:]) == 1:
         sys.argv.append('--help')
+
+    """ This is so the tools custom plugin manager doesn't get 
+    confused with the extra argument when creating the plugin 
+    manager object. """
     if sys.argv[1] == 'tools':
         sys.argv.remove('tools')
         cli()
