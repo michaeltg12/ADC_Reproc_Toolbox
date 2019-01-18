@@ -1,11 +1,10 @@
 #!/apps/base/python3/bin/python3
 
+import click
 import glob
 import os
 import re
 import tarfile
-
-import click
 
 try:
     from progress.bar import PixelBar

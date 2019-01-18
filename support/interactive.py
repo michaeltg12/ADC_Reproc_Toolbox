@@ -2,9 +2,8 @@
 
 
 import argparse
+import re
 from datetime import datetime
-from re import compile, match
-
 from PyInquirer import style_from_dict, Token, prompt
 from PyInquirer import Validator, ValidationError
 
