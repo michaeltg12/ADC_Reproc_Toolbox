@@ -1,14 +1,18 @@
 import json
 import os
 import subprocess
+from config.config import *
 from support.command_support import *
 from support.validators import *
 
-@click.command(help='Manual data staging.')
-@click.option('--job', '-j', help='DQR# as job name.') #, callback=validate_dqr)
+stage_help='''Manual data staging. Required argument: DQR# as job name.
+A non DQR job name can be used but it will break the funcionality of some
+tools in this toolbox.'''
+@click.command(help=stage_help)
+@click.argument('job')
 @click.option('--datastream', '-ds', callback=validate_ds, help='The datastream to stage.')
-@click.option('--start', '-s', callback=validate_date, help='Start date')
-@click.option('--end', '-e', callback=validate_date, help='End date')
+@click.option('--start', '-s', callback=validate_start, help='Start date')
+@click.option('--end', '-e', callback=validate_end, help='End date')
 @click.pass_context
 def stage(ctx, *args, **kwargs):
     job = kwargs.pop('job')
@@ -25,17 +29,17 @@ def stage(ctx, *args, **kwargs):
 @click.command(help='Get a list highest version files given a datastream, start, and end.')
 @click.option('--userid', '-u', default='giansiracusam1', help='User ID, can be obtained using get_userid method.')
 @click.option('--datastream', '-ds', callback=validate_ds, help='REQUIRED: The datastream to stage.')
-@click.option('--start', '-s', callback=validate_date, help='REQUIRED: Start date')
-@click.option('--end', '-e', callback=validate_date, help='REQUIRED: End date')
+@click.option('--start', '-s', callback=validate_start, help='REQUIRED: Start date')
+@click.option('--end', '-e', callback=validate_end, help='REQUIRED: End date')
 @click.option('--to-file/--no-file', default=False, help='Write output to file')
-def get_filelist(*args, **kwargs):
+@click.pass_context
+def get_filelist(ctx, *args, **kwargs):
     # more info about adrsws @ https://adc.arm.gov/docs/adrsws.html
-    cmd = ['/data/project/0021718_1509993009/bin/./adrsws.sh', '-u', kwargs['userid'], '-d', kwargs['userid'],
+    cmd = [adrsws_loc, '-u', kwargs['userid'], '-d', kwargs['userid'],
            '-t', 'flist', '-d', kwargs['datastream'], '-s', kwargs['start'], '-e', kwargs['end'],  '-v']
     process = subprocess.Popen(cmd, stdout=subprocess.PIPE)
     out, err = process.communicate() # a tuple with two bytes type objects
-    decoded_out = out.decode('utf-8')
-    parsed_out = json.loads(decoded_out)
+    parsed_out = json.loads(out.decode('utf-8'))
     if parsed_out['status'] == 'success':
         if kwargs['to_file']:
             with open('filelist.txt','w') as flist: # writes to cwd
@@ -44,10 +48,24 @@ def get_filelist(*args, **kwargs):
         else:
             return parsed_out['files'] # this is a list
     else:
-        print('{} - {}'.format(parsed_out['status'],parsed_out['msg']))
+        ctx.obj.reproc_logger.warning('{} - {}'.format(parsed_out['status'],parsed_out['msg']))
         return RuntimeError
 
-@click.command(help='Stage using adrsws by passing a file that contains one file to stage per line.')
-@click.option('--filename', '-f', callback=validate_file, help='Filename or full path to file.')
-def stage1(*args, **kwargs):
-    pass
+get_userid_help='''Retrieve the userid to use ADRSWS. 
+This command requires an email registered with ARM. User registration at https://adc.arm.gov'''
+@click.command(help=get_userid_help)
+@click.argument('email')
+@click.pass_context
+def get_userid(ctx, *args, **kwargs):
+    # more info about adrsws @ https://adc.arm.gov/docs/adrsws.html
+    cmd = [adrsws_loc, '-t', 'userid', '-a', kwargs['email']]
+    process = subprocess.Popen(cmd, stdout=subprocess.PIPE)
+    out, err = process.communicate()  # a tuple with two bytes type objects
+    parsed_out = json.loads(out.decode('utf-8'))
+    try:
+        ctx.obj.reproc_logger.info('userid = {}'.format(parsed_out['userid']))
+        return parsed_out['userid']
+    except KeyError:
+        ctx.obj.reproc_logger.warning('{} - {}'.format(parsed_out['status'],parsed_out['msg']))
+        return RuntimeError
+

@@ -11,6 +11,7 @@ post_proc = '{}/post_processing'.format(reproc_home)
 test_reproc_home = '/data/home/giansiracusa/test_rtb_dir'
 test_post_proc = '/data/home/giansiracusa/test_rtb_dir/post_processing'
 today = int(date.fromtimestamp(time()).strftime("%Y%m%d"))
+adrsws_loc = '/data/project/0021718_1509993009/bin/./adrsws.sh'
 
 init_paths = [
     '{reproc_home}',
@@ -91,8 +92,8 @@ default_ds_conf = {
     }
 }
 
-data_files = {'env.bash':
-'''setenv DATA_HOME "/data/project/0021718_1509993009/D181011.5"
+data_files = {'env.csh':
+'''setenv DATA_HOME "{reproc_home}/{job}"
 setenv COLLECTION_DATA "$DATA_HOME/collection"
 setenv CONF_DATA "$DATA_HOME/conf"
 setenv LOGS_DATA "$DATA_HOME/logs"
@@ -104,19 +105,19 @@ setenv WWW_DATA "$DATA_HOME/www"
 setenv OUT_DATA "$DATA_HOME/out"
 setenv QUICKLOOK_DATA "$DATA_HOME/quicklooks"
 setenv TMP_DATA "$DATA_HOME/tmp" ''',
-              'env.csh' :
-'''DATA_HOME="{reproc_home}/{job}"
-COLLECTION_DATA="$DATA_HOME/collection"
-CONF_DATA="$DATA_HOME/conf"
-LOGS_DATA="$DATA_HOME/logs"
-HEALTH_DATA="$DATA_HOME/health"
-DB_DATA="$DATA_HOME/db"
-ARCHIVE_DATA="/data/archive"
-DATASTREAM_DATA="$DATA_HOME/datastream"
-WWW_DATA="$DATA_HOME/www"
-OUT_DATA="$DATA_HOME/out"
-QUICKLOOK_DATA="$DATA_HOME/quicklooks"
-TMP_DATA="$DATA_HOME/tmp" '''
+              'env.bash' :
+'''export DATA_HOME="{reproc_home}/{job}"
+export COLLECTION_DATA="$DATA_HOME/collection"
+export CONF_DATA="$DATA_HOME/conf"
+export LOGS_DATA="$DATA_HOME/logs"
+export HEALTH_DATA="$DATA_HOME/health"
+export DB_DATA="$DATA_HOME/db"
+export ARCHIVE_DATA="/data/archive"
+export DATASTREAM_DATA="$DATA_HOME/datastream"
+export WWW_DATA="$DATA_HOME/www"
+export OUT_DATA="$DATA_HOME/out"
+export QUICKLOOK_DATA="$DATA_HOME/quicklooks"
+export TMP_DATA="$DATA_HOME/tmp" '''
              }
 
 

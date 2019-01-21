@@ -37,6 +37,7 @@ Output:
 
 import click
 import logging
+import os
 from pathlib import Path
 import random
 import re
@@ -68,15 +69,16 @@ a list of possible commands to run. Commands can be chained but
 the options and arguments for each command must be listed in full
 before invoking the next command."""
 
+module_path = Path(sys.argv[0]).parent
 plugin_folder = os.path.join(os.path.dirname(__file__), 'tools')
 
 class Config(object):
     def __init__(self, *args, **kwargs):
         self.debug = kwargs['debug']
-        self.help = yaml.load(open('documentation/help.yaml'))
+        self.help = yaml.load(open(module_path.joinpath('documentation/help.yaml')))
         self.today = today
         # setup logging with a config file and get main reproc_logger
-        global_config = yaml.load(open("config/logging_config.yaml"))
+        global_config = yaml.load(open(module_path.joinpath('config/logging_config.yaml')))
         config.dictConfig(global_config['logging'])
         # if debug or test then enable reproc_test_logger from config/logging_config.yaml
         if kwargs['debug'] or kwargs['test']:
@@ -147,6 +149,7 @@ def tools():
 main.add_command(init)
 main.add_command(stage)
 main.add_command(get_filelist)
+main.add_command(get_userid)
 main.add_command(rename)
 main.add_command(printStuff)
 # main.add_command(release)
