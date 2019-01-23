@@ -4,7 +4,7 @@ from datetime import datetime as dt
 from logging import getLogger
 from os import getcwd
 from pathlib import Path, PurePath
-from support.interactive import interact
+from support.interactive_support import interact
 from support.setup_support import load_job_config
 reproc_logger = getLogger('reproc_logger')
 
@@ -18,6 +18,7 @@ def validate_dqr(ctx, param, job: str):
         ctx.obj.reproc_logger.error('Error validating dqr provided. {}'.format(job))
     except TypeError:
         try:
+            ctx.obj.reproc_logger.warning('Attempting to parse dqr from cwd.')
             valid_dqr = dqr_regex.search(getcwd()).group()
         except AttributeError:
             ctx.obj.reproc_logger.error('Could not parse dqr from cwd.')

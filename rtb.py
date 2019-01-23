@@ -49,6 +49,7 @@ from logging import config, getLogger
 
 # TODO may want to change this to only import specific modules
 from config.config import *
+from commands.interactive import guided
 from commands.mgmt import *
 from commands.stage import *
 from commands.rename import *
@@ -75,8 +76,9 @@ plugin_folder = os.path.join(os.path.dirname(__file__), 'tools')
 class Config(object):
     def __init__(self, *args, **kwargs):
         self.debug = kwargs['debug']
-        self.help = yaml.load(open(module_path.joinpath('documentation/help.yaml')))
+        #self.help = yaml.load(open(module_path.joinpath('documentation/help.yaml'))) #TODO not used yet
         self.today = today
+
         # setup logging with a config file and get main reproc_logger
         global_config = yaml.load(open(module_path.joinpath('config/logging_config.yaml')))
         config.dictConfig(global_config['logging'])
@@ -85,10 +87,32 @@ class Config(object):
             self.reproc_logger = getLogger("reproc_test_logger")
         else:
             self.reproc_logger = getLogger("reproc_logger")
+
         # if test then set custom staging location from config/config.py
         self.reproc_home = reproc_home if not kwargs['test'] else test_reproc_home
         self.post_proc = post_proc if not kwargs['test'] else test_post_proc
+        # see if there is a DQR in the arguments and load config info
+        for arg in sys.argv:
+            if dqr_regex.match(arg) is not None:
+                self.dqr = dqr_regex.search(arg).group()
+                self.load_config(job=self.dqr)
+        # debugging prints for development
         self.reproc_logger.debug(f'-- Testing --\n\tREPROC_HOME={test_reproc_home}\n\tPOST_PROC={test_post_proc}')
+        # self.reproc_logger.debug('Config obj dict: {}'.format(self.__dict__)) #todo remove
+
+    def load_config(self, job: str):
+        config_path = PurePath(self.reproc_home).joinpath(job, f'{job}.conf')
+        try:
+            self.job_config = json.load(open(config_path))
+        except FileNotFoundError:
+            self.reproc_logger.warning('Could not load configuration file from:\n\t{}'.format(config_path))
+        else:
+            self.config_path = config_path
+        return self.job_config
+
+    def save_config(self):
+        with open(self.config_path) as open_config_file:
+            json.dump(self.job_config, open_config_file)
 
 """
 Example of using command nesting to group commands.
@@ -146,7 +170,8 @@ def main(ctx, *args, **kwargs):
 def tools():
     """ Plugin Manager entry point """
 
-main.add_command(init)
+main.add_command(guided)
+main.add_command(setup)
 main.add_command(stage)
 main.add_command(get_filelist)
 main.add_command(get_userid)

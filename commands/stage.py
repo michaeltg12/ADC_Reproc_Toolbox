@@ -6,7 +6,7 @@ from support.command_support import *
 from support.validators import *
 
 stage_help='''Manual data staging. Required argument: DQR# as job name.
-A non DQR job name can be used but it will break the funcionality of some
+A non DQR job name can be used but it will break the functionality of some
 tools in this toolbox.'''
 @click.command(help=stage_help)
 @click.argument('job')
@@ -25,12 +25,14 @@ def stage(ctx, *args, **kwargs):
     ctx.obj.reproc_logger.info("running staging module")
     ctx.obj.reproc_logger.debug('debug mode activated')
 
-
-@click.command(help='Get a list highest version files given a datastream, start, and end.')
+get_filelist_help='''Get a list of highest versioned files. 
+This uses ADRSWS, which is managed by Joseph Olat. More information is available at 
+https://adc.arm.gov/docs/adrsws.html'''
+@click.command(help=get_filelist_help)
 @click.option('--userid', '-u', default='giansiracusam1', help='User ID, can be obtained using get_userid method.')
 @click.option('--datastream', '-ds', callback=validate_ds, help='REQUIRED: The datastream to stage.')
-@click.option('--start', '-s', callback=validate_start, help='REQUIRED: Start date')
-@click.option('--end', '-e', callback=validate_end, help='REQUIRED: End date')
+@click.option('--start', '-s', callback=validate_start, help='REQUIRED: Start date YYYYMMDD')
+@click.option('--end', '-e', callback=validate_end, help='REQUIRED: End date YYYYMMDD')
 @click.option('--to-file/--no-file', default=False, help='Write output to file')
 @click.pass_context
 def get_filelist(ctx, *args, **kwargs):

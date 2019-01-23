@@ -6,10 +6,10 @@ from support.setup_support import *
 from support.validators import *
 from config.config import *
 
-@click.command(help='Initialize a job directory hierarchy and post processing directory.')
+@click.command(help='Initialize a job and post processing directories.')
 @click.option('--job', '-j', help='DQR# as job name.')
 @click.pass_context
-def init(ctx, *args, **kwargs):
+def setup(ctx, *args, **kwargs):
     # validator was made to work with click.options param=None b/c not used
     path_args = {
         'reproc_home' : ctx.obj.reproc_home,
@@ -29,12 +29,12 @@ def init(ctx, *args, **kwargs):
             contents = data_files[filename].format(**path_args)
             ctx.obj.reproc_logger.debug('\n\twriting config file: {}\n{}\n'.format(filename, contents))
             env_file.writelines(contents)
-    default_job_conf = update_job_conf(command='init', **kwargs)
+    updated_job_conf = update_job_conf(default_job_conf, command='init', **kwargs)
     conf_filepath = PurePath(path_args['reproc_home']).joinpath(path_args['job'], f'{path_args["job"]}.conf')
-    with open(conf_filepath,'w') as conf_file:
+    with open(conf_filepath,'w') as open_config_file:
         ctx.obj.reproc_logger.debug('\n\twriting default conf file: {}\n{}\n'.
-                                    format(conf_filepath.name, default_job_conf))
-        json.dump(default_job_conf, conf_file)
+                                    format(conf_filepath.name, updated_job_conf))
+        json.dump(updated_job_conf, open_config_file)
 
 @click.command(help='Update tracked files, configs, and logs for given job')
 @click.option('--job', '-j', help='DQR# as job name.')

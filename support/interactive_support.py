@@ -29,7 +29,7 @@ class DatastreamValidator(Validator):
 
 class DateValidator(Validator):
     def validate(self, document):
-        for fmt in ('%Y-%m-%d', '%d.%m.%Y', '%d/%m/%Y'):
+        for fmt in ('%Y-%m-%d', '%Y%m%d', '%d.%m.%Y', '%d/%m/%Y'):
             try:
                 return datetime.strptime(document.text, fmt)
             except ValueError:
@@ -41,7 +41,7 @@ class DateValidator(Validator):
 
 def interact(questions=None, style=None):
     default_style = style_from_dict(
-        {Token.QuestionMark: '#E91E63 bold', Token.Selected: '#673AB7 bold', Token.Instruction: '',  # default
+        {Token.QuestionMark: '#E91E63 bold', Token.Selected: '#673AB7 bold', Token.Instruction: '',
          Token.Answer: '#2196f3 bold', Token.Question: '', })
     default_questions = [
         {'type': 'confirm', 'name': 'woops', 'message': 'We forgot to pass in a question. Would you like to '
@@ -50,6 +50,7 @@ def interact(questions=None, style=None):
     if style == None: style = default_style
     answers = prompt(questions, style=style)
     return answers
+
 
 
 ###################### Example of making custom actinos ###################
